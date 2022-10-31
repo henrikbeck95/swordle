@@ -2,7 +2,6 @@
 
 ## Task list
 
-1. [ ] Build a graphical user interface (GUI) with JavaFX and Scene Builder.
 1. [ ] Implement command line interface (CLI) mode.
 1. [ ] Implement graphical user interface (GUI) mode.
 
@@ -10,11 +9,11 @@
 
 SWordle (Solve Wordle with a swordle tool) is a implementation of [Word list filter library](https://github.com/henrikbeck95/wordlist) for solving any random word guess games such as Crossword and Wordle styles using regular expression on backend to short the amount of words possibilities.
 
-<!--
 ### Screenshots
 
-![]().
--->
+|Statistics					|Tab
+:-------------------------:	|:-------------------------:
+![Statistics](./docs/screenshot/statistics.png).|![Tab](./docs/screenshot/wordle_tab_01.png).
 
 ### Features
 
