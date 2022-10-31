@@ -16,18 +16,6 @@ public class GraphicalUserInterface extends Application {
 	private ArrayList<Wordle> wordles;
 	
 	public static void main(ArrayList<String> listDictionary, String[] args) {
-		/*
-		ArrayList<Wordle> wordles = new ArrayList<Wordle>();
-
-		// Insert Wordle elements into ArrayList
-		wordles.add(new Wordle(false, 5, 5, listDictionary.get(1), "poerd", "", "?????".toCharArray()));
-		wordles.add(new Wordle(false, 5, 5, listDictionary.get(1), "poerd", "", "?????".toCharArray()));
-		wordles.add(new Wordle(false, 5, 5, listDictionary.get(1), "a", "", "?m?d?".toCharArray()));
-		wordles.add(new Wordle(false, 5, 5, listDictionary.get(1), "oip", "aureclvgm", "????s".toCharArray()));
-
-		display(wordles);
-		*/
-		
 		launch(args);
 	}
 
@@ -47,7 +35,6 @@ public class GraphicalUserInterface extends Application {
 	}
 	
 	@Override
-//	public void start(Stage primaryStage) {
 	public void start(Stage primaryStage) {
 		try {
 			int width = 440; // 430
@@ -64,18 +51,8 @@ public class GraphicalUserInterface extends Application {
 			primaryStage.setTitle("Swordle");
 			primaryStage.show();
 			primaryStage.setFullScreen(false);
-
-			// GraphicalUserInterface.main(primaryStage);
-			
-			// workflow();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	
-	/*
-	public void workflow() {
-		buildWordle();
-	}
-	*/
 }

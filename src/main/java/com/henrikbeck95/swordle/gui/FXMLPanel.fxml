@@ -48,7 +48,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="400.0" prefWidth="430.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<!--
+<VBox prefHeight="400.0" prefWidth="430.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.henrikbeck95.swordle.gui.FXMLPanelController">
+-->
+
+<VBox prefHeight="400.0" prefWidth="430.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.henrikbeck95.swordle.gui.FXMLPanelController">
 	<children>
 		<MenuBar VBox.vgrow="NEVER">
 			<menus>
@@ -205,11 +209,11 @@
 
 										<AnchorPane id="anchorPane_tab1_buttons" fx:id="anchorPane_tab1_buttons" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
 											<children>
-												<Button id="button_tab1_clear" fx:id="button_tab1_clear" layoutX="277.0" layoutY="283.0" mnemonicParsing="false" text="Clear" />
 												
-												<Button id="button_tab1_filter" fx:id="button_tab1_filter" layoutX="342.0" layoutY="283.0" mnemonicParsing="false" text="Filter" />
+												<Button id="button_tab1_filter" fx:id="button_tab1_filter" layoutX="342.0" layoutY="283.0" mnemonicParsing="false" onAction="#button_tab1_filter_action" text="Filter" />
+												<Button id="button_tab1_clear" fx:id="button_tab1_clear" layoutX="277.0" layoutY="283.0" mnemonicParsing="false" onAction="#button_tab1_clear_action" text="Clear" />
 												<!-- 
-												<Button id="button_tab1_filter" fx:id="button_tab1_filter" layoutX="342.0" layoutY="283.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Filter" />
+												<Button id="button_tab1_filter" fx:id="button_tab1_filter" layoutX="342.0" layoutY="283.0" mnemonicParsing="false" text="Filter" />
 												-->
 											</children>
 										</AnchorPane>
@@ -262,8 +266,8 @@
 
 										<AnchorPane id="anchorPane_tab2_buttons" fx:id="anchorPane_tab2_buttons" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
 											<children>
-												<Button id="button_tab2_clear" fx:id="button_tab2_clear" layoutX="277.0" layoutY="283.0" mnemonicParsing="false" text="Clear" />
-												<Button id="button_tab2_filter" fx:id="button_tab2_filter" layoutX="342.0" layoutY="283.0" mnemonicParsing="false" text="Filter" />
+												<Button id="button_tab2_clear" fx:id="button_tab2_clear" layoutX="277.0" layoutY="283.0" mnemonicParsing="false" onAction="#button_tab2_clear_action" text="Clear" />
+												<Button id="button_tab2_filter" fx:id="button_tab2_filter" layoutX="342.0" layoutY="283.0" mnemonicParsing="false" onAction="#button_tab2_filter_action" text="Filter" />
 											</children>
 										</AnchorPane>
 									</children>
@@ -315,8 +319,8 @@
 
 										<AnchorPane id="anchorPane_tab3_buttons" fx:id="anchorPane_tab3_buttons" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
 											<children>
-												<Button id="button_tab3_clear" fx:id="button_tab3_clear" layoutX="277.0" layoutY="283.0" mnemonicParsing="false" text="Clear" />
-												<Button id="button_tab3_filter" fx:id="button_tab3_filter" layoutX="342.0" layoutY="283.0" mnemonicParsing="false" text="Filter" />
+												<Button id="button_tab3_clear" fx:id="button_tab3_clear" layoutX="277.0" layoutY="283.0" mnemonicParsing="false" onAction="#button_tab3_clear_action" text="Clear" />
+												<Button id="button_tab3_filter" fx:id="button_tab3_filter" layoutX="342.0" layoutY="283.0" mnemonicParsing="false" onAction="#button_tab3_filter_action" text="Filter" />
 											</children>
 										</AnchorPane>
 									</children>
@@ -368,8 +372,8 @@
 
 										<AnchorPane id="anchorPane_tab4_buttons" fx:id="anchorPane_tab4_buttons" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
 											<children>
-												<Button id="button_tab4_clear" fx:id="button_tab4_clear" layoutX="277.0" layoutY="283.0" mnemonicParsing="false" text="Clear" />
-												<Button id="button_tab4_filter" fx:id="button_tab4_filter" layoutX="342.0" layoutY="283.0" mnemonicParsing="false" text="Filter" />
+												<Button id="button_tab4_clear" fx:id="button_tab4_clear" layoutX="277.0" layoutY="283.0" mnemonicParsing="false" onAction="#button_tab4_clear_action" text="Clear" />
+												<Button id="button_tab4_filter" fx:id="button_tab4_filter" layoutX="342.0" layoutY="283.0" mnemonicParsing="false" onAction="#button_tab4_filter_action" text="Filter" />
 											</children>
 										</AnchorPane>
 									</children>

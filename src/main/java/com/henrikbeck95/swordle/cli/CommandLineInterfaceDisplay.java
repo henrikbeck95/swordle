@@ -18,9 +18,7 @@ public class CommandLineInterfaceDisplay {
 	 * String wordContent
 	 * String wordNotContent
 	 * char wordFinal[]
-	 */
-	
-	/*
+	 * 
 	 * Build dictionary according to the language
 	 * String dictionaryUrl = DictionaryFilterArray.getContent(listDictionary, "english");
 	 * 

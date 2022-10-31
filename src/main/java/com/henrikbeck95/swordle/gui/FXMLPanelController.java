@@ -1,16 +1,17 @@
 package com.henrikbeck95.swordle.gui;
 
+import java.util.ArrayList;
+
+import com.henrikbeck95.swordle.App;
+import com.henrikbeck95.swordle.dictionary.DictionaryFilterArray;
+import com.henrikbeck95.wordlist.wordle.Wordle;
+
 /*
-	// FXMLPanelController
-	
-	// [JavaFX para iniciantes - #05 - Button e Label, entendendo a dinâmica](https://www.youtube.com/watch?v=XlTG2joTQbg&list=PLWd_VnthxxLejQ9CcHrsT5HCFn-10kquZ&index=5)
-	
-	@FXML
-    void handleButtonAction(ActionEvent event) {
-    	System.out.println("Hahaha");
-    	textArea_tab1_results.setText("1234");
-    	button_tab1_filter.setText("Clickado!");
-    }
+ * import java.net.URL;
+ * import java.util.ResourceBundle;
+ * import javafx.fxml.Initializable;
+ * 
+ * public class FXMLPanelController implements Initializable {}
 */
 
 import javafx.event.ActionEvent;
@@ -27,6 +28,7 @@ import javafx.scene.control.TitledPane;
 import javafx.scene.layout.AnchorPane;
 
 public class FXMLPanelController {
+
     @FXML
     private Tab Statistics;
 
@@ -375,10 +377,145 @@ public class FXMLPanelController {
     @FXML
     private TitledPane titledPane_tabStatistics_game4;
 
-    @FXML
-    void handleButtonAction(ActionEvent event) {
-    	System.out.println("Hahaha");
-    	textArea_tab1_results.setText("1234");
-    	button_tab1_filter.setText("Clickado!");
+    // Management tabs
+    
+    String wordleGenerate(boolean accentuation, String wordLengthMinimum, String wordLengthMaximum, String wordDictionaryLanguage, String wordContent, String wordNotContent, String wordFinal){
+    	// Validate the arguments
+    	
+    	int wordLengthMinimumAux = 20;
+    	int wordLengthMaximumAux = 25;
+    	
+    	// MUST BE IMPROVED BY CHECKING IF VARIABLE IS COMPATIBLE WITH NUMBER  
+    	if (wordLengthMinimum != "") {
+    		wordLengthMinimumAux = Integer.parseUnsignedInt(wordLengthMinimum);
+    	}
+    	
+    	// MUST BE IMPROVED BY CHECKING IF VARIABLE IS COMPATIBLE WITH NUMBER  
+    	if (wordLengthMaximum != "") {
+    		wordLengthMaximumAux = Integer.parseUnsignedInt(wordLengthMaximum);
+    	}
+    	
+    	if (wordDictionaryLanguage != "") {
+    		wordDictionaryLanguage = this.textField_tab1_wordContent.getText();
+    	} else {
+    		wordDictionaryLanguage = "portuguese";
+    	}
+    	
+    	if (wordContent != "") {
+    		wordContent = this.textField_tab1_wordContent.getText();
+    	}
+    	
+    	if (wordNotContent != "") {
+    		wordNotContent = this.textField_tab1_wordDoesNotContent.getText();
+    	}
+    	
+    	if (wordFinal != "") {
+    		wordFinal = this.textField_tab1_wordPosition.getText();
+    	}
+    	
+    	// Get the dictionary path
+    	ArrayList<String> listDictionary = App.dictionaryListGenerate();
+    	String dictionaryUrl = DictionaryFilterArray.getContent(listDictionary, wordDictionaryLanguage);
+    	
+    	// Build Wordle object with custom arguments
+    	Wordle wordle = new Wordle(accentuation, wordLengthMinimumAux, wordLengthMaximumAux, dictionaryUrl, wordContent, wordNotContent, wordFinal.toCharArray());
+    	
+    	return wordle.getArrayList().toString();
     }
+
+    @FXML
+    void button_tab1_clear_action(ActionEvent event) {
+    	this.textArea_tab1_results.setText("");
+    }
+    
+    @FXML
+    void button_tab1_filter_action(ActionEvent event) {
+    	this.button_tab1_filter.setText("Processing...");
+    	
+    	boolean accentuation = this.checkBox_tab1_hasAccentuation.isSelected();
+    	String wordLengthMinimum = this.textField_tab1_wordLengthIntervalMaximum.getText();
+		String wordLengthMaximum = this.textField_tab1_wordLengthIntervalMaximum.getText();
+		String wordDictionaryLanguage = "portuguese";
+		String wordContent = this.textField_tab1_wordContent.getText();
+		String wordNotContent = this.textField_tab1_wordDoesNotContent.getText();
+		String wordFinal = this.textField_tab1_wordPosition.getText();
+    	
+    	String aux = wordleGenerate(accentuation, wordLengthMinimum, wordLengthMaximum, wordDictionaryLanguage, wordContent, wordNotContent, wordFinal);
+    	
+    	this.textArea_tab1_results.setText(aux);
+    	this.button_tab1_filter.setText("Filter");
+    }
+
+    @FXML
+    void button_tab2_clear_action(ActionEvent event) {
+    	this.textArea_tab2_results.setText("");
+    }
+
+    @FXML
+    void button_tab2_filter_action(ActionEvent event) {
+    	this.button_tab2_filter.setText("Processing...");
+    	
+    	boolean accentuation = this.checkBox_tab2_hasAccentuation.isSelected();
+    	String wordLengthMinimum = this.textField_tab2_wordLengthIntervalMaximum.getText();
+		String wordLengthMaximum = this.textField_tab2_wordLengthIntervalMaximum.getText();
+		String wordDictionaryLanguage = "portuguese";
+		String wordContent = this.textField_tab2_wordContent.getText();
+		String wordNotContent = this.textField_tab2_wordDoesNotContent.getText();
+		String wordFinal = this.textField_tab2_wordPosition.getText();
+    	
+    	String aux = wordleGenerate(accentuation, wordLengthMinimum, wordLengthMaximum, wordDictionaryLanguage, wordContent, wordNotContent, wordFinal);
+    	
+    	this.textArea_tab2_results.setText(aux);
+    	this.button_tab2_filter.setText("Filter");
+    }
+
+    @FXML
+    void button_tab3_clear_action(ActionEvent event) {
+    	this.textArea_tab3_results.setText("");
+    }
+
+    @FXML
+    void button_tab3_filter_action(ActionEvent event) {
+    	this.button_tab3_filter.setText("Processing...");
+    	
+    	boolean accentuation = this.checkBox_tab3_hasAccentuation.isSelected();
+    	String wordLengthMinimum = this.textField_tab3_wordLengthIntervalMaximum.getText();
+		String wordLengthMaximum = this.textField_tab3_wordLengthIntervalMaximum.getText();
+		String wordDictionaryLanguage = "portuguese";
+		String wordContent = this.textField_tab3_wordContent.getText();
+		String wordNotContent = this.textField_tab3_wordDoesNotContent.getText();
+		String wordFinal = this.textField_tab3_wordPosition.getText();
+    	
+    	String aux = wordleGenerate(accentuation, wordLengthMinimum, wordLengthMaximum, wordDictionaryLanguage, wordContent, wordNotContent, wordFinal);
+    	
+    	this.textArea_tab3_results.setText(aux);
+    	this.button_tab3_filter.setText("Filter");
+    }
+
+    @FXML
+    void button_tab4_clear_action(ActionEvent event) {
+    	this.textArea_tab4_results.setText("");
+    }
+
+    @FXML
+    void button_tab4_filter_action(ActionEvent event) {
+    	this.button_tab4_filter.setText("Processing...");
+    	
+    	boolean accentuation = this.checkBox_tab4_hasAccentuation.isSelected();
+    	String wordLengthMinimum = this.textField_tab4_wordLengthIntervalMaximum.getText();
+		String wordLengthMaximum = this.textField_tab4_wordLengthIntervalMaximum.getText();
+		String wordDictionaryLanguage = "portuguese";
+		String wordContent = this.textField_tab4_wordContent.getText();
+		String wordNotContent = this.textField_tab4_wordDoesNotContent.getText();
+		String wordFinal = this.textField_tab4_wordPosition.getText();
+    	
+    	String aux = wordleGenerate(accentuation, wordLengthMinimum, wordLengthMaximum, wordDictionaryLanguage, wordContent, wordNotContent, wordFinal);
+    	
+    	this.textArea_tab4_results.setText(aux);
+    	this.button_tab4_filter.setText("Filter");
+    }
+    
+    // Management statistics
+    
+    // ???
 }

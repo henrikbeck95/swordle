@@ -9,6 +9,9 @@
 
 SWordle (Solve Wordle with a swordle tool) is a implementation of [Word list filter library](https://github.com/henrikbeck95/wordlist) for solving any random word guess games such as Crossword and Wordle styles using regular expression on backend to short the amount of words possibilities.
 
+- Warning
+	> This project is **only** working by setting it up from source or graphical user interface in testing mode so far.
+
 ### Screenshots
 
 |Statistics					|Tab
@@ -27,7 +30,7 @@ SWordle (Solve Wordle with a swordle tool) is a implementation of [Word list fil
 - Modes
 	1. [x] Source code.
 	1. [ ] Command line interface (CLI).
-	1. [ ] Graphical user interface (GUI).
+	1. [ ] Graphical user interface (GUI) (in progress).
 
 - Supported languages
 	1. [x] English.
@@ -41,7 +44,6 @@ SWordle (Solve Wordle with a swordle tool) is a implementation of [Word list fil
 - Warning
 	> This project does not warranty to find the exactly word. Besides of that it implements a search filter for reducing the number of possibilities. All the thinking strategy it is still up to you. Be wise by choosing the best strategies.
 
-<!--
 ## Games
 
 - English version
@@ -54,7 +56,6 @@ SWordle (Solve Wordle with a swordle tool) is a implementation of [Word list fil
 	1. [Termoo game - Quarteto](https://term.ooo/4/).
 	1. [Wordle game - Portuguese](https://wordlegame.org/pt).
 	1. [WordlePlay game](https://wordleplay.com/pt/).
--->
 
 ## Instructions
 
