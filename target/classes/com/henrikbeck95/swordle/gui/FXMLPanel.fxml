@@ -52,7 +52,7 @@
 <VBox prefHeight="400.0" prefWidth="430.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.henrikbeck95.swordle.gui.FXMLPanelController">
 -->
 
-<VBox prefHeight="400.0" prefWidth="430.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.henrikbeck95.swordle.gui.FXMLPanelController">
+<VBox prefHeight="400.0" prefWidth="430.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.henrikbeck95.swordle.gui.FXMLPanelController">
 	<children>
 		<MenuBar VBox.vgrow="NEVER">
 			<menus>
@@ -169,54 +169,27 @@
 							<content>
 								<AnchorPane id="anchorPane_tab1" fx:id="anchorPane_tab1" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
 									<children>
-										<TextArea id="textArea_tab1_results" fx:id="textArea_tab1_results" editable="false" prefHeight="310.0" prefWidth="245.0" promptText="All the possible results are going to be displayed here..." wrapText="true" />
+										<TextArea id="textArea_tab1_results" fx:id="textArea_tab1_results" editable="false" prefHeight="310.0" prefWidth="245.0" promptText="All the possible results are going to be displayed here..." />
 										
-										<AnchorPane id="anchorPane_tab1_wordLengthInterval" fx:id="anchorPane_tab1_wordLengthInterval" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-											<children>
-												<Label id="label_tab1_wordLengthInterval" fx:id="label_tab1_wordLengthInterval" layoutX="263.0" layoutY="10.0" text="Filter word length interval" />
-												<TextField id="textField_tab1_wordLengthIntervalMinimum" fx:id="textField_tab1_wordLengthIntervalMinimum" alignment="CENTER" layoutX="259.0" layoutY="33.0" prefHeight="25.0" prefWidth="65.0" promptText="Minimum" />
-												<TextField id="textField_tab1_wordLengthIntervalMaximum" fx:id="textField_tab1_wordLengthIntervalMaximum" alignment="CENTER" layoutX="338.0" layoutY="33.0" prefHeight="25.0" prefWidth="65.0" promptText="Maximum" />
-											</children>
-										</AnchorPane>
-										
-										<AnchorPane id="anchorPane_tab1_wordContent" fx:id="anchorPane_tab1_wordContent" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-											<children>
-												<Label id="label_tab1_wordContent" fx:id="label_tab1_wordContent" layoutX="293.0" layoutY="68.0" text="Contain letters" />
-												<TextField id="textField_tab1_wordContent" fx:id="textField_tab1_wordContent" layoutX="257.0" layoutY="95.0" promptText="The word must contains..." />
-											</children>
-										</AnchorPane>
-										
-										<AnchorPane id="anchorPane_tab1_wordDoesNotContent" fx:id="anchorPane_tab1_wordDoesNotContent" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-											<children>
-												<Label id="label_tab1_wordDoesNotContent" fx:id="label_tab1_wordDoesNotContent" layoutX="269.0" layoutY="130.0" text="Does not contain letters" />
-												<TextField id="textField_tab1_wordDoesNotContent" fx:id="textField_tab1_wordDoesNotContent" layoutX="257.0" layoutY="157.0" promptText="The word must avoid..." />
-											</children>
-										</AnchorPane>
-										
-										<AnchorPane id="anchorPane_tab1_wordPosition" fx:id="anchorPane_tab1_wordPosition" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-											<children>
-												<Label id="label_tab1_wordPosition" fx:id="label_tab1_wordPosition" layoutX="270.0" layoutY="193.0" text="Exactly letters positions" />
-												<TextField id="textField_tab1_wordPosition" fx:id="textField_tab1_wordPosition" alignment="CENTER" layoutX="257.0" layoutY="219.0" promptText="Fill unknown char with '?'" />
-											</children>
-										</AnchorPane>
-										
-										<AnchorPane id="anchorPane_tab1_checkBoxs" fx:id="anchorPane_tab1_checkBoxs" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-											<children>
-												<CheckBox id="checkBox_tab1_hasAccentuation" fx:id="checkBox_tab1_hasAccentuation" layoutX="255.0" layoutY="254.0" mnemonicParsing="false" selected="true" text="Accentuation" />
-												<CheckBox id="checkBox_tab1_isDone" fx:id="checkBox_tab1_isDone" layoutX="356.0" layoutY="254.0" mnemonicParsing="false" text="Done" />
-											</children>
-										</AnchorPane>
+										<Label id="label_tab1_wordLengthInterval" fx:id="label_tab1_wordLengthInterval" layoutX="263.0" layoutY="10.0" text="Filter word length interval" />
+										<TextField id="textField_tab1_wordLengthIntervalMinimum" fx:id="textField_tab1_wordLengthIntervalMinimum" alignment="CENTER" layoutX="259.0" layoutY="33.0" prefHeight="25.0" prefWidth="65.0" promptText="Minimum" />
 
-										<AnchorPane id="anchorPane_tab1_buttons" fx:id="anchorPane_tab1_buttons" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-											<children>
-												
-												<Button id="button_tab1_filter" fx:id="button_tab1_filter" layoutX="342.0" layoutY="283.0" mnemonicParsing="false" onAction="#button_tab1_filter_action" text="Filter" />
-												<Button id="button_tab1_clear" fx:id="button_tab1_clear" layoutX="277.0" layoutY="283.0" mnemonicParsing="false" onAction="#button_tab1_clear_action" text="Clear" />
-												<!-- 
-												<Button id="button_tab1_filter" fx:id="button_tab1_filter" layoutX="342.0" layoutY="283.0" mnemonicParsing="false" text="Filter" />
-												-->
-											</children>
-										</AnchorPane>
+										<TextField id="textField_tab1_wordLengthIntervalMaximum" fx:id="textField_tab1_wordLengthIntervalMaximum" alignment="CENTER" layoutX="338.0" layoutY="33.0" prefHeight="25.0" prefWidth="65.0" promptText="Maximum" />
+									
+										<Label id="label_tab1_wordContent" fx:id="label_tab1_wordContent" layoutX="293.0" layoutY="68.0" text="Contain letters" />
+										<TextField id="textField_tab1_wordContent" fx:id="textField_tab1_wordContent" layoutX="257.0" layoutY="95.0" promptText="The word must contains..." />
+									
+										<Label id="label_tab1_wordDoesNotContent" fx:id="label_tab1_wordDoesNotContent" layoutX="269.0" layoutY="130.0" text="Does not contain letters" />
+										<TextField id="textField_tab1_wordDoesNotContent" fx:id="textField_tab1_wordDoesNotContent" layoutX="257.0" layoutY="157.0" promptText="The word must avoid..." />
+									
+										<Label id="label_tab1_wordPosition" fx:id="label_tab1_wordPosition" layoutX="270.0" layoutY="193.0" text="Exactly letters positions" />
+										<TextField id="textField_tab1_wordPosition" fx:id="textField_tab1_wordPosition" alignment="CENTER" layoutX="257.0" layoutY="219.0" promptText="Fill unknown char with '?'" />
+								
+										<CheckBox id="checkBox_tab1_hasAccentuation" fx:id="checkBox_tab1_hasAccentuation" layoutX="255.0" layoutY="254.0" mnemonicParsing="false" selected="true" text="Accentuation" />
+										<CheckBox id="checkBox_tab1_isDone" fx:id="checkBox_tab1_isDone" layoutX="356.0" layoutY="254.0" mnemonicParsing="false" text="Done" />
+
+										<Button id="button_tab1_filter" fx:id="button_tab1_filter" layoutX="342.0" layoutY="283.0" mnemonicParsing="false" onAction="#button_tab1_filter_action" text="Filter" />
+										<Button id="button_tab1_clear" fx:id="button_tab1_clear" layoutX="277.0" layoutY="283.0" mnemonicParsing="false" onAction="#button_tab1_clear_action" text="Clear" />
 									</children>
 								</AnchorPane>
 							</content>
@@ -226,50 +199,27 @@
 							<content>
 								<AnchorPane id="anchorPane_tab2" fx:id="anchorPane_tab2" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
 									<children>
-										<TextArea id="textArea_tab2_results" fx:id="textArea_tab2_results" editable="false" prefHeight="310.0" prefWidth="245.0" promptText="All the possible results are going to be displayed here..." wrapText="true" />
+										<TextArea id="textArea_tab2_results" fx:id="textArea_tab2_results" editable="false" prefHeight="310.0" prefWidth="245.0" promptText="All the possible results are going to be displayed here..." />
 										
-										<AnchorPane id="anchorPane_tab2_wordLengthInterval" fx:id="anchorPane_tab2_wordLengthInterval" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-											<children>
-												<Label id="label_tab2_wordLengthInterval" fx:id="label_tab2_wordLengthInterval" layoutX="263.0" layoutY="10.0" text="Filter word length interval" />
-												<TextField id="textField_tab2_wordLengthIntervalMinimum" fx:id="textField_tab2_wordLengthIntervalMinimum" alignment="CENTER" layoutX="259.0" layoutY="33.0" prefHeight="25.0" prefWidth="65.0" promptText="Minimum" />
-												<TextField id="textField_tab2_wordLengthIntervalMaximum" fx:id="textField_tab2_wordLengthIntervalMaximum" alignment="CENTER" layoutX="338.0" layoutY="33.0" prefHeight="25.0" prefWidth="65.0" promptText="Maximum" />
-											</children>
-										</AnchorPane>
-										
-										<AnchorPane id="anchorPane_tab2_wordContent" fx:id="anchorPane_tab2_wordContent" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-											<children>
-												<Label id="label_tab2_wordContent" fx:id="label_tab2_wordContent" layoutX="293.0" layoutY="68.0" text="Contain letters" />
-												<TextField id="textField_tab2_wordContent" fx:id="textField_tab2_wordContent" layoutX="257.0" layoutY="95.0" promptText="The word must contains..." />
-											</children>
-										</AnchorPane>
-										
-										<AnchorPane id="anchorPane_tab2_wordDoesNotContent" fx:id="anchorPane_tab2_wordDoesNotContent" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-											<children>
-												<Label id="label_tab2_wordDoesNotContent" fx:id="label_tab2_wordDoesNotContent" layoutX="269.0" layoutY="130.0" text="Does not contain letters" />
-												<TextField id="textField_tab2_wordDoesNotContent" fx:id="textField_tab2_wordDoesNotContent" layoutX="257.0" layoutY="157.0" promptText="The word must avoid..." />
-											</children>
-										</AnchorPane>
-										
-										<AnchorPane id="anchorPane_tab2_wordPosition" fx:id="anchorPane_tab2_wordPosition" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-											<children>
-												<Label id="label_tab2_wordPosition" fx:id="label_tab2_wordPosition" layoutX="270.0" layoutY="193.0" text="Exactly letters positions" />
-												<TextField id="textField_tab2_wordPosition" fx:id="textField_tab2_wordPosition" alignment="CENTER" layoutX="257.0" layoutY="219.0" promptText="Fill unknown char with '?'" />
-											</children>
-										</AnchorPane>
-										
-										<AnchorPane id="anchorPane_tab2_checkBoxs" fx:id="anchorPane_tab2_checkBoxs" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-											<children>
-												<CheckBox id="checkBox_tab2_hasAccentuation" fx:id="checkBox_tab2_hasAccentuation" layoutX="255.0" layoutY="254.0" mnemonicParsing="false" selected="true" text="Accentuation" />
-												<CheckBox id="checkBox_tab2_isDone" fx:id="checkBox_tab2_isDone" layoutX="356.0" layoutY="254.0" mnemonicParsing="false" text="Done" />
-											</children>
-										</AnchorPane>
+										<Label id="label_tab2_wordLengthInterval" fx:id="label_tab2_wordLengthInterval" layoutX="263.0" layoutY="10.0" text="Filter word length interval" />
+										<TextField id="textField_tab2_wordLengthIntervalMinimum" fx:id="textField_tab2_wordLengthIntervalMinimum" alignment="CENTER" layoutX="259.0" layoutY="33.0" prefHeight="25.0" prefWidth="65.0" promptText="Minimum" />
 
-										<AnchorPane id="anchorPane_tab2_buttons" fx:id="anchorPane_tab2_buttons" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-											<children>
-												<Button id="button_tab2_clear" fx:id="button_tab2_clear" layoutX="277.0" layoutY="283.0" mnemonicParsing="false" onAction="#button_tab2_clear_action" text="Clear" />
-												<Button id="button_tab2_filter" fx:id="button_tab2_filter" layoutX="342.0" layoutY="283.0" mnemonicParsing="false" onAction="#button_tab2_filter_action" text="Filter" />
-											</children>
-										</AnchorPane>
+										<TextField id="textField_tab2_wordLengthIntervalMaximum" fx:id="textField_tab2_wordLengthIntervalMaximum" alignment="CENTER" layoutX="338.0" layoutY="33.0" prefHeight="25.0" prefWidth="65.0" promptText="Maximum" />
+									
+										<Label id="label_tab2_wordContent" fx:id="label_tab2_wordContent" layoutX="293.0" layoutY="68.0" text="Contain letters" />
+										<TextField id="textField_tab2_wordContent" fx:id="textField_tab2_wordContent" layoutX="257.0" layoutY="95.0" promptText="The word must contains..." />
+									
+										<Label id="label_tab2_wordDoesNotContent" fx:id="label_tab2_wordDoesNotContent" layoutX="269.0" layoutY="130.0" text="Does not contain letters" />
+										<TextField id="textField_tab2_wordDoesNotContent" fx:id="textField_tab2_wordDoesNotContent" layoutX="257.0" layoutY="157.0" promptText="The word must avoid..." />
+									
+										<Label id="label_tab2_wordPosition" fx:id="label_tab2_wordPosition" layoutX="270.0" layoutY="193.0" text="Exactly letters positions" />
+										<TextField id="textField_tab2_wordPosition" fx:id="textField_tab2_wordPosition" alignment="CENTER" layoutX="257.0" layoutY="219.0" promptText="Fill unknown char with '?'" />
+								
+										<CheckBox id="checkBox_tab2_hasAccentuation" fx:id="checkBox_tab2_hasAccentuation" layoutX="255.0" layoutY="254.0" mnemonicParsing="false" selected="true" text="Accentuation" />
+										<CheckBox id="checkBox_tab2_isDone" fx:id="checkBox_tab2_isDone" layoutX="356.0" layoutY="254.0" mnemonicParsing="false" text="Done" />
+
+										<Button id="button_tab2_filter" fx:id="button_tab2_filter" layoutX="342.0" layoutY="283.0" mnemonicParsing="false" onAction="#button_tab2_filter_action" text="Filter" />
+										<Button id="button_tab2_clear" fx:id="button_tab2_clear" layoutX="277.0" layoutY="283.0" mnemonicParsing="false" onAction="#button_tab1_clear_action" text="Clear" />
 									</children>
 								</AnchorPane>
 							</content>
@@ -279,50 +229,27 @@
 							<content>
 								<AnchorPane id="anchorPane_tab3" fx:id="anchorPane_tab3" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
 									<children>
-										<TextArea id="textArea_tab3_results" fx:id="textArea_tab3_results" editable="false" prefHeight="310.0" prefWidth="245.0" promptText="All the possible results are going to be displayed here..." wrapText="true" />
+										<TextArea id="textArea_tab3_results" fx:id="textArea_tab3_results" editable="false" prefHeight="310.0" prefWidth="245.0" promptText="All the possible results are going to be displayed here..." />
 										
-										<AnchorPane id="anchorPane_tab3_wordLengthInterval" fx:id="anchorPane_tab3_wordLengthInterval" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-											<children>
-												<Label id="label_tab3_wordLengthInterval" fx:id="label_tab3_wordLengthInterval" layoutX="263.0" layoutY="10.0" text="Filter word length interval" />
-												<TextField id="textField_tab3_wordLengthIntervalMinimum" fx:id="textField_tab3_wordLengthIntervalMinimum" alignment="CENTER" layoutX="259.0" layoutY="33.0" prefHeight="25.0" prefWidth="65.0" promptText="Minimum" />
-												<TextField id="textField_tab3_wordLengthIntervalMaximum" fx:id="textField_tab3_wordLengthIntervalMaximum" alignment="CENTER" layoutX="338.0" layoutY="33.0" prefHeight="25.0" prefWidth="65.0" promptText="Maximum" />
-											</children>
-										</AnchorPane>
-										
-										<AnchorPane id="anchorPane_tab3_wordContent" fx:id="anchorPane_tab3_wordContent" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-											<children>
-												<Label id="label_tab3_wordContent" fx:id="label_tab3_wordContent" layoutX="293.0" layoutY="68.0" text="Contain letters" />
-												<TextField id="textField_tab3_wordContent" fx:id="textField_tab3_wordContent" layoutX="257.0" layoutY="95.0" promptText="The word must contains..." />
-											</children>
-										</AnchorPane>
-										
-										<AnchorPane id="anchorPane_tab3_wordDoesNotContent" fx:id="anchorPane_tab3_wordDoesNotContent" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-											<children>
-												<Label id="label_tab3_wordDoesNotContent" fx:id="label_tab3_wordDoesNotContent" layoutX="269.0" layoutY="130.0" text="Does not contain letters" />
-												<TextField id="textField_tab3_wordDoesNotContent" fx:id="textField_tab3_wordDoesNotContent" layoutX="257.0" layoutY="157.0" promptText="The word must avoid..." />
-											</children>
-										</AnchorPane>
-										
-										<AnchorPane id="anchorPane_tab3_wordPosition" fx:id="anchorPane_tab3_wordPosition" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-											<children>
-												<Label id="label_tab3_wordPosition" fx:id="label_tab3_wordPosition" layoutX="270.0" layoutY="193.0" text="Exactly letters positions" />
-												<TextField id="textField_tab3_wordPosition" fx:id="textField_tab3_wordPosition" alignment="CENTER" layoutX="257.0" layoutY="219.0" promptText="Fill unknown char with '?'" />
-											</children>
-										</AnchorPane>
-										
-										<AnchorPane id="anchorPane_tab3_checkBoxs" fx:id="anchorPane_tab3_checkBoxs" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-											<children>
-												<CheckBox id="checkBox_tab3_hasAccentuation" fx:id="checkBox_tab3_hasAccentuation" layoutX="255.0" layoutY="254.0" mnemonicParsing="false" selected="true" text="Accentuation" />
-												<CheckBox id="checkBox_tab3_isDone" fx:id="checkBox_tab3_isDone" layoutX="356.0" layoutY="254.0" mnemonicParsing="false" text="Done" />
-											</children>
-										</AnchorPane>
+										<Label id="label_tab3_wordLengthInterval" fx:id="label_tab3_wordLengthInterval" layoutX="263.0" layoutY="10.0" text="Filter word length interval" />
+										<TextField id="textField_tab3_wordLengthIntervalMinimum" fx:id="textField_tab3_wordLengthIntervalMinimum" alignment="CENTER" layoutX="259.0" layoutY="33.0" prefHeight="25.0" prefWidth="65.0" promptText="Minimum" />
 
-										<AnchorPane id="anchorPane_tab3_buttons" fx:id="anchorPane_tab3_buttons" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-											<children>
-												<Button id="button_tab3_clear" fx:id="button_tab3_clear" layoutX="277.0" layoutY="283.0" mnemonicParsing="false" onAction="#button_tab3_clear_action" text="Clear" />
-												<Button id="button_tab3_filter" fx:id="button_tab3_filter" layoutX="342.0" layoutY="283.0" mnemonicParsing="false" onAction="#button_tab3_filter_action" text="Filter" />
-											</children>
-										</AnchorPane>
+										<TextField id="textField_tab3_wordLengthIntervalMaximum" fx:id="textField_tab3_wordLengthIntervalMaximum" alignment="CENTER" layoutX="338.0" layoutY="33.0" prefHeight="25.0" prefWidth="65.0" promptText="Maximum" />
+									
+										<Label id="label_tab3_wordContent" fx:id="label_tab3_wordContent" layoutX="293.0" layoutY="68.0" text="Contain letters" />
+										<TextField id="textField_tab3_wordContent" fx:id="textField_tab3_wordContent" layoutX="257.0" layoutY="95.0" promptText="The word must contains..." />
+									
+										<Label id="label_tab3_wordDoesNotContent" fx:id="label_tab3_wordDoesNotContent" layoutX="269.0" layoutY="130.0" text="Does not contain letters" />
+										<TextField id="textField_tab3_wordDoesNotContent" fx:id="textField_tab3_wordDoesNotContent" layoutX="257.0" layoutY="157.0" promptText="The word must avoid..." />
+									
+										<Label id="label_tab3_wordPosition" fx:id="label_tab3_wordPosition" layoutX="270.0" layoutY="193.0" text="Exactly letters positions" />
+										<TextField id="textField_tab3_wordPosition" fx:id="textField_tab3_wordPosition" alignment="CENTER" layoutX="257.0" layoutY="219.0" promptText="Fill unknown char with '?'" />
+								
+										<CheckBox id="checkBox_tab3_hasAccentuation" fx:id="checkBox_tab3_hasAccentuation" layoutX="255.0" layoutY="254.0" mnemonicParsing="false" selected="true" text="Accentuation" />
+										<CheckBox id="checkBox_tab3_isDone" fx:id="checkBox_tab3_isDone" layoutX="356.0" layoutY="254.0" mnemonicParsing="false" text="Done" />
+
+										<Button id="button_tab3_filter" fx:id="button_tab3_filter" layoutX="342.0" layoutY="283.0" mnemonicParsing="false" onAction="#button_tab3_filter_action" text="Filter" />
+										<Button id="button_tab3_clear" fx:id="button_tab3_clear" layoutX="277.0" layoutY="283.0" mnemonicParsing="false" onAction="#button_tab1_clear_action" text="Clear" />
 									</children>
 								</AnchorPane>
 							</content>
@@ -332,54 +259,32 @@
 							<content>
 								<AnchorPane id="anchorPane_tab4" fx:id="anchorPane_tab4" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
 									<children>
-										<TextArea id="textArea_tab4_results" fx:id="textArea_tab4_results" editable="false" prefHeight="310.0" prefWidth="245.0" promptText="All the possible results are going to be displayed here..." wrapText="true" />
+										<TextArea id="textArea_tab4_results" fx:id="textArea_tab4_results" editable="false" prefHeight="310.0" prefWidth="245.0" promptText="All the possible results are going to be displayed here..." />
 										
-										<AnchorPane id="anchorPane_tab4_wordLengthInterval" fx:id="anchorPane_tab4_wordLengthInterval" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-											<children>
-												<Label id="label_tab4_wordLengthInterval" fx:id="label_tab4_wordLengthInterval" layoutX="263.0" layoutY="10.0" text="Filter word length interval" />
-												<TextField id="textField_tab4_wordLengthIntervalMinimum" fx:id="textField_tab4_wordLengthIntervalMinimum" alignment="CENTER" layoutX="259.0" layoutY="33.0" prefHeight="25.0" prefWidth="65.0" promptText="Minimum" />
-												<TextField id="textField_tab4_wordLengthIntervalMaximum" fx:id="textField_tab4_wordLengthIntervalMaximum" alignment="CENTER" layoutX="338.0" layoutY="33.0" prefHeight="25.0" prefWidth="65.0" promptText="Maximum" />
-											</children>
-										</AnchorPane>
-										
-										<AnchorPane id="anchorPane_tab4_wordContent" fx:id="anchorPane_tab4_wordContent" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-											<children>
-												<Label id="label_tab4_wordContent" fx:id="label_tab4_wordContent" layoutX="293.0" layoutY="68.0" text="Contain letters" />
-												<TextField id="textField_tab4_wordContent" fx:id="textField_tab4_wordContent" layoutX="257.0" layoutY="95.0" promptText="The word must contains..." />
-											</children>
-										</AnchorPane>
-										
-										<AnchorPane id="anchorPane_tab4_wordDoesNotContent" fx:id="anchorPane_tab4_wordDoesNotContent" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-											<children>
-												<Label id="label_tab4_wordDoesNotContent" fx:id="label_tab4_wordDoesNotContent" layoutX="269.0" layoutY="130.0" text="Does not contain letters" />
-												<TextField id="textField_tab4_wordDoesNotContent" fx:id="textField_tab4_wordDoesNotContent" layoutX="257.0" layoutY="157.0" promptText="The word must avoid..." />
-											</children>
-										</AnchorPane>
-										
-										<AnchorPane id="anchorPane_tab4_wordPosition" fx:id="anchorPane_tab4_wordPosition" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-											<children>
-												<Label id="label_tab4_wordPosition" fx:id="label_tab4_wordPosition" layoutX="270.0" layoutY="193.0" text="Exactly letters positions" />
-												<TextField id="textField_tab4_wordPosition" fx:id="textField_tab4_wordPosition" alignment="CENTER" layoutX="257.0" layoutY="219.0" promptText="Fill unknown char with '?'" />
-											</children>
-										</AnchorPane>
-										
-										<AnchorPane id="anchorPane_tab4_checkBoxs" fx:id="anchorPane_tab4_checkBoxs" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-											<children>
-												<CheckBox id="checkBox_tab4_hasAccentuation" fx:id="checkBox_tab4_hasAccentuation" layoutX="255.0" layoutY="254.0" mnemonicParsing="false" selected="true" text="Accentuation" />
-												<CheckBox id="checkBox_tab4_isDone" fx:id="checkBox_tab4_isDone" layoutX="356.0" layoutY="254.0" mnemonicParsing="false" text="Done" />
-											</children>
-										</AnchorPane>
+										<Label id="label_tab4_wordLengthInterval" fx:id="label_tab4_wordLengthInterval" layoutX="263.0" layoutY="10.0" text="Filter word length interval" />
+										<TextField id="textField_tab4_wordLengthIntervalMinimum" fx:id="textField_tab4_wordLengthIntervalMinimum" alignment="CENTER" layoutX="259.0" layoutY="33.0" prefHeight="25.0" prefWidth="65.0" promptText="Minimum" />
 
-										<AnchorPane id="anchorPane_tab4_buttons" fx:id="anchorPane_tab4_buttons" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-											<children>
-												<Button id="button_tab4_clear" fx:id="button_tab4_clear" layoutX="277.0" layoutY="283.0" mnemonicParsing="false" onAction="#button_tab4_clear_action" text="Clear" />
-												<Button id="button_tab4_filter" fx:id="button_tab4_filter" layoutX="342.0" layoutY="283.0" mnemonicParsing="false" onAction="#button_tab4_filter_action" text="Filter" />
-											</children>
-										</AnchorPane>
+										<TextField id="textField_tab4_wordLengthIntervalMaximum" fx:id="textField_tab4_wordLengthIntervalMaximum" alignment="CENTER" layoutX="338.0" layoutY="33.0" prefHeight="25.0" prefWidth="65.0" promptText="Maximum" />
+									
+										<Label id="label_tab4_wordContent" fx:id="label_tab4_wordContent" layoutX="293.0" layoutY="68.0" text="Contain letters" />
+										<TextField id="textField_tab4_wordContent" fx:id="textField_tab4_wordContent" layoutX="257.0" layoutY="95.0" promptText="The word must contains..." />
+									
+										<Label id="label_tab4_wordDoesNotContent" fx:id="label_tab4_wordDoesNotContent" layoutX="269.0" layoutY="130.0" text="Does not contain letters" />
+										<TextField id="textField_tab4_wordDoesNotContent" fx:id="textField_tab4_wordDoesNotContent" layoutX="257.0" layoutY="157.0" promptText="The word must avoid..." />
+									
+										<Label id="label_tab4_wordPosition" fx:id="label_tab4_wordPosition" layoutX="270.0" layoutY="193.0" text="Exactly letters positions" />
+										<TextField id="textField_tab4_wordPosition" fx:id="textField_tab4_wordPosition" alignment="CENTER" layoutX="257.0" layoutY="219.0" promptText="Fill unknown char with '?'" />
+								
+										<CheckBox id="checkBox_tab4_hasAccentuation" fx:id="checkBox_tab4_hasAccentuation" layoutX="255.0" layoutY="254.0" mnemonicParsing="false" selected="true" text="Accentuation" />
+										<CheckBox id="checkBox_tab4_isDone" fx:id="checkBox_tab4_isDone" layoutX="356.0" layoutY="254.0" mnemonicParsing="false" text="Done" />
+
+										<Button id="button_tab4_filter" fx:id="button_tab4_filter" layoutX="342.0" layoutY="283.0" mnemonicParsing="false" onAction="#button_tab4_filter_action" text="Filter" />
+										<Button id="button_tab4_clear" fx:id="button_tab4_clear" layoutX="277.0" layoutY="283.0" mnemonicParsing="false" onAction="#button_tab1_clear_action" text="Clear" />
 									</children>
 								</AnchorPane>
 							</content>
 						</Tab>
+
 					</tabs>
 				</TabPane>
 				

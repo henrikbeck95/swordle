@@ -10,9 +10,9 @@ import java.nio.file.Paths;
  */
 
 public class DictionaryFile {
-	public static int getAmountOfLines(String filePath) {
+	public static long getAmountOfLines(String filePath) {
 		Path path = Paths.get(filePath);
-		int lines = 0;
+		long lines = 0;
 
 		try {
 			lines = (int) Files.lines(path).count();

@@ -17,6 +17,7 @@
 		<!-- JavaFX -->
 		<javafx.version>11.0.2</javafx.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		
 	</properties>
   
 	<dependencies>
@@ -32,24 +33,33 @@
 		
 		<!-- JavaFX -->
 		
+		<!-- https://mvnrepository.com/artifact/org.openjfx/javafx -->
+		<!--
+		<dependency>
+		    <groupId>org.openjfx</groupId>
+		    <artifactId>javafx</artifactId>
+		    <version>19-ea+8</version>
+		    <type>pom</type>
+		</dependency>
+		-->
+				
+		<!-- Working -->
+		
 		<dependency>
 			<groupId>org.openjfx</groupId>
 			<artifactId>javafx-controls</artifactId>
-			<!--<version>11</version>-->
 			<version>${javafx.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.openjfx</groupId>
 			<artifactId>javafx-graphics </artifactId>
-			<!--<version>11</version>-->
 			<version>${javafx.version}</version>
 		</dependency>
 		
 		<dependency>
 			<groupId>org.openjfx</groupId>
 			<artifactId>javafx-fxml</artifactId>
-			<!--<version>11.0.1</version>-->
 			<version>${javafx.version}</version>
 		</dependency>
 	</dependencies>
