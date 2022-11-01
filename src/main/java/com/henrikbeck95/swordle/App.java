@@ -10,13 +10,20 @@ public class App {
 	public static void main(String[] args) {
 		ArrayList<String> listDictionary = dictionaryListGenerate();
 
-		String[] arguments = new String[args.length + 1]; // Remove this soon in favor of args
+		String[] arguments = new String[args.length + 2]; // Temporary action in favor of args
 
-		if (arguments.length == 0) {
+		switch (arguments.length) {
+		case 0:
 			CommandLineInterfaceDisplay.main(listDictionary);
-		} else {
+			break;
+		case 1:
+			// Doing some tests
+			System.out.println(1.0 - 0.0003514119502981272);
+			break;
+		default:
 			GraphicalUserInterface.main(listDictionary, args);
 			System.exit(0);
+			break;
 		}
 	}
 

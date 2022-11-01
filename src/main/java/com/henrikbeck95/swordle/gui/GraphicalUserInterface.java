@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 public class GraphicalUserInterface extends Application {
 	private ArrayList<String> listDictionary;
 	private ArrayList<Wordle> wordles;
-	
+
 	public static void main(ArrayList<String> listDictionary, String[] args) {
 		launch(args);
 	}
@@ -25,27 +25,27 @@ public class GraphicalUserInterface extends Application {
 			System.out.println("---###---");
 		}
 	}
-	
-	public void buildWordle(){
+
+	public void buildWordle() {
 		// Build Wordle and insert the elements into ArrayList
 		this.wordles.add(new Wordle(false, 5, 5, listDictionary.get(1), "poerd", "", "?????".toCharArray()));
 		this.wordles.add(new Wordle(false, 5, 5, listDictionary.get(1), "poerd", "", "?????".toCharArray()));
 		this.wordles.add(new Wordle(false, 5, 5, listDictionary.get(1), "a", "", "?m?d?".toCharArray()));
 		this.wordles.add(new Wordle(false, 5, 5, listDictionary.get(1), "oip", "aureclvgm", "????s".toCharArray()));
 	}
-	
+
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			int width = 440; // 430
-			int height = 405; // 400
+			int screenWidth = 440; // 430
+			int screenHeight = 405; // 400
 
 			// String filepath = "./display/gui/view/painel.fxml";
 			// String filepath = "./display/gui/FXMLPanel.fxml";
 			// String filepath = "./painel.fxml";
 			String filepath = "./FXMLPanel.fxml";
 			Pane root = FXMLLoader.load(getClass().getResource(filepath));
-			Scene scene = new Scene(root, width, height);
+			Scene scene = new Scene(root, screenWidth, screenHeight);
 
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Swordle");
