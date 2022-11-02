@@ -11,8 +11,8 @@ import com.henrikbeck95.wordlist.Wordlist;
  * 
  * - Issues
  * 1. [ ] Replace progressBar in favor of label for displaying the percentage values.
+ * progressIndicator_tabStatistics_game1_percentage to label_tabStatistics_game1_percentage
  * 1. [ ] Fix the scroll bar on textArea to be vertical.
- * 1. [ ] Remove the GraphicalUserInterface.display() method.
  * 
  * - Features
  * 1. [ ] Export the results to a plain text file.
@@ -28,19 +28,16 @@ public class App {
 	public static void main(String[] args) {
 		ArrayList<String> listDictionary = dictionaryListGenerate();
 
-		String[] arguments = new String[args.length + 2]; // Temporary action in favor of args
+		String[] arguments = new String[args.length + 0]; // Temporary action in favor of args
+//		String[] arguments = new String[args.length + 1]; // Temporary action in favor of args
 
 		switch (arguments.length) {
 		case 0:
-			CommandLineInterfaceDisplay.main(listDictionary);
-			break;
-		case 1:
-			// Doing some tests
-			System.out.println(1.0 - 0.0003514119502981272);
-			break;
-		default:
 			GraphicalUserInterface.main(listDictionary, args);
 			System.exit(0);
+			break;
+		default:
+			CommandLineInterfaceDisplay.main(listDictionary);
 			break;
 		}
 	}

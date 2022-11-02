@@ -38,7 +38,6 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -105,11 +104,12 @@
 							<content>
 								<AnchorPane id="anchorPane_statistics" fx:id="anchorPane_statistics" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
 									<children>
+									
 										<TitledPane id="titledPane_tabStatistics_game1" fx:id="titledPane_tabStatistics_game1" alignment="CENTER" layoutX="6.0" layoutY="7.0" text="Game 1">
 											<content>
 												<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="126.0" prefWidth="200.0">
 													<children>
-														<ProgressIndicator id="progressIndicator_tabStatistics_game1_percentage" fx:id="progressIndicator_tabStatistics_game1_percentage" layoutX="73.0" layoutY="9.0" progress="0.0" />
+														<Label id="label_tabStatistics_game1_percentage" fx:id="label_tabStatistics_game1_percentage" alignment="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="201.0" text="0%" />
 														<Label id="label_tabStatistics_game1_wordsTotalTitle" fx:id="label_tabStatistics_game1_wordsTotalTitle" layoutX="16.0" layoutY="61.0" prefHeight="17.0" prefWidth="97.0" text="Total words" />
 														<Label id="label_tabStatistics_game1_wordsTotalResult" fx:id="label_tabStatistics_game1_wordsTotalResult" alignment="CENTER" layoutX="112.0" layoutY="57.0" prefHeight="25.0" prefWidth="72.0" text="0" />
 														<Label id="label_tabStatistics_game1_wordsRestTitle" fx:id="label_tabStatistics_game1_wordsRestTitle" layoutX="16.0" layoutY="96.0" prefHeight="17.0" prefWidth="97.0" text="Rest words" />
@@ -123,7 +123,7 @@
 											<content>
 												<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="126.0" prefWidth="200.0">
 													<children>
-														<ProgressIndicator id="progressIndicator_tabStatistics_game2_percentage" fx:id="progressIndicator_tabStatistics_game2_percentage" layoutX="73.0" layoutY="9.0" progress="0.0" />
+														<Label id="label_tabStatistics_game2_percentage" fx:id="label_tabStatistics_game2_percentage" alignment="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="201.0" text="0%" />
 														<Label id="label_tabStatistics_game2_wordsTotalTitle" fx:id="label_tabStatistics_game2_wordsTotalTitle" layoutX="16.0" layoutY="61.0" prefHeight="17.0" prefWidth="97.0" text="Total words" />
 														<Label id="label_tabStatistics_game2_wordsTotalResult" fx:id="label_tabStatistics_game2_wordsTotalResult" alignment="CENTER" layoutX="112.0" layoutY="57.0" prefHeight="25.0" prefWidth="72.0" text="0" />
 														<Label id="label_tabStatistics_game2_wordsRestTitle" fx:id="label_tabStatistics_game2_wordsRestTitle" layoutX="16.0" layoutY="96.0" prefHeight="17.0" prefWidth="97.0" text="Rest words" />
@@ -137,7 +137,7 @@
 											<content>
 												<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="126.0" prefWidth="200.0">
 													<children>
-														<ProgressIndicator id="progressIndicator_tabStatistics_game3_percentage" fx:id="progressIndicator_tabStatistics_game3_percentage" layoutX="73.0" layoutY="9.0" progress="0.0" />
+														<Label id="label_tabStatistics_game3_percentage" fx:id="label_tabStatistics_game3_percentage" alignment="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="201.0" text="0%" />
 														<Label id="label_tabStatistics_game3_wordsTotalTitle" fx:id="label_tabStatistics_game3_wordsTotalTitle" layoutX="16.0" layoutY="61.0" prefHeight="17.0" prefWidth="97.0" text="Total words" />
 														<Label id="label_tabStatistics_game3_wordsTotalResult" fx:id="label_tabStatistics_game3_wordsTotalResult" alignment="CENTER" layoutX="112.0" layoutY="57.0" prefHeight="25.0" prefWidth="72.0" text="0" />
 														<Label id="label_tabStatistics_game3_wordsRestTitle" fx:id="label_tabStatistics_game3_wordsRestTitle" layoutX="16.0" layoutY="96.0" prefHeight="17.0" prefWidth="97.0" text="Rest words" />
@@ -151,7 +151,7 @@
 											<content>
 												<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="126.0" prefWidth="200.0">
 													<children>
-														<ProgressIndicator id="progressIndicator_tabStatistics_game4_percentage" fx:id="progressIndicator_tabStatistics_game4_percentage" layoutX="73.0" layoutY="9.0" progress="0.0" />
+														<Label id="label_tabStatistics_game4_percentage" fx:id="label_tabStatistics_game4_percentage" alignment="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="201.0" text="0%" />
 														<Label id="label_tabStatistics_game4_wordsTotalTitle" fx:id="label_tabStatistics_game4_wordsTotalTitle" layoutX="16.0" layoutY="61.0" prefHeight="17.0" prefWidth="97.0" text="Total words" />
 														<Label id="label_tabStatistics_game4_wordsTotalResult" fx:id="label_tabStatistics_game4_wordsTotalResult" alignment="CENTER" layoutX="112.0" layoutY="57.0" prefHeight="25.0" prefWidth="72.0" text="0" />
 														<Label id="label_tabStatistics_game4_wordsRestTitle" fx:id="label_tabStatistics_game4_wordsRestTitle" layoutX="16.0" layoutY="96.0" prefHeight="17.0" prefWidth="97.0" text="Rest words" />
@@ -160,6 +160,7 @@
 												</AnchorPane>
 											</content>
 										</TitledPane>
+
 									</children>
 								</AnchorPane>
 							</content>
@@ -169,7 +170,7 @@
 							<content>
 								<AnchorPane id="anchorPane_tab1" fx:id="anchorPane_tab1" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
 									<children>
-										<TextArea id="textArea_tab1_results" fx:id="textArea_tab1_results" editable="false" prefHeight="310.0" prefWidth="245.0" promptText="All the possible results are going to be displayed here..." />
+										<TextArea id="textArea_tab1_results" fx:id="textArea_tab1_results" editable="false" prefHeight="310.0" prefWidth="245.0" promptText="All the possible results are going to be displayed here..." wrapText="true" />
 										
 										<Label id="label_tab1_wordLengthInterval" fx:id="label_tab1_wordLengthInterval" layoutX="263.0" layoutY="10.0" text="Filter word length interval" />
 										<TextField id="textField_tab1_wordLengthIntervalMinimum" fx:id="textField_tab1_wordLengthIntervalMinimum" alignment="CENTER" layoutX="259.0" layoutY="33.0" prefHeight="25.0" prefWidth="65.0" promptText="Minimum" />
@@ -185,7 +186,7 @@
 										<Label id="label_tab1_wordPosition" fx:id="label_tab1_wordPosition" layoutX="270.0" layoutY="193.0" text="Exactly letters positions" />
 										<TextField id="textField_tab1_wordPosition" fx:id="textField_tab1_wordPosition" alignment="CENTER" layoutX="257.0" layoutY="219.0" promptText="Fill unknown char with '?'" />
 								
-										<CheckBox id="checkBox_tab1_hasAccentuation" fx:id="checkBox_tab1_hasAccentuation" layoutX="255.0" layoutY="254.0" mnemonicParsing="false" selected="true" text="Accentuation" />
+										<CheckBox id="checkBox_tab1_hasAccentuation" fx:id="checkBox_tab1_hasAccentuation" layoutX="255.0" layoutY="254.0" mnemonicParsing="false" text="Accentuation" />
 										<CheckBox id="checkBox_tab1_isDone" fx:id="checkBox_tab1_isDone" layoutX="356.0" layoutY="254.0" mnemonicParsing="false" text="Done" />
 
 										<Button id="button_tab1_filter" fx:id="button_tab1_filter" layoutX="342.0" layoutY="283.0" mnemonicParsing="false" onAction="#button_tab1_filter_action" text="Filter" />
@@ -199,7 +200,7 @@
 							<content>
 								<AnchorPane id="anchorPane_tab2" fx:id="anchorPane_tab2" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
 									<children>
-										<TextArea id="textArea_tab2_results" fx:id="textArea_tab2_results" editable="false" prefHeight="310.0" prefWidth="245.0" promptText="All the possible results are going to be displayed here..." />
+										<TextArea id="textArea_tab2_results" fx:id="textArea_tab2_results" editable="false" prefHeight="310.0" prefWidth="245.0" promptText="All the possible results are going to be displayed here..." wrapText="true" />
 										
 										<Label id="label_tab2_wordLengthInterval" fx:id="label_tab2_wordLengthInterval" layoutX="263.0" layoutY="10.0" text="Filter word length interval" />
 										<TextField id="textField_tab2_wordLengthIntervalMinimum" fx:id="textField_tab2_wordLengthIntervalMinimum" alignment="CENTER" layoutX="259.0" layoutY="33.0" prefHeight="25.0" prefWidth="65.0" promptText="Minimum" />
@@ -215,11 +216,11 @@
 										<Label id="label_tab2_wordPosition" fx:id="label_tab2_wordPosition" layoutX="270.0" layoutY="193.0" text="Exactly letters positions" />
 										<TextField id="textField_tab2_wordPosition" fx:id="textField_tab2_wordPosition" alignment="CENTER" layoutX="257.0" layoutY="219.0" promptText="Fill unknown char with '?'" />
 								
-										<CheckBox id="checkBox_tab2_hasAccentuation" fx:id="checkBox_tab2_hasAccentuation" layoutX="255.0" layoutY="254.0" mnemonicParsing="false" selected="true" text="Accentuation" />
+										<CheckBox id="checkBox_tab2_hasAccentuation" fx:id="checkBox_tab2_hasAccentuation" layoutX="255.0" layoutY="254.0" mnemonicParsing="false" text="Accentuation" />
 										<CheckBox id="checkBox_tab2_isDone" fx:id="checkBox_tab2_isDone" layoutX="356.0" layoutY="254.0" mnemonicParsing="false" text="Done" />
 
 										<Button id="button_tab2_filter" fx:id="button_tab2_filter" layoutX="342.0" layoutY="283.0" mnemonicParsing="false" onAction="#button_tab2_filter_action" text="Filter" />
-										<Button id="button_tab2_clear" fx:id="button_tab2_clear" layoutX="277.0" layoutY="283.0" mnemonicParsing="false" onAction="#button_tab1_clear_action" text="Clear" />
+										<Button id="button_tab2_clear" fx:id="button_tab2_clear" layoutX="277.0" layoutY="283.0" mnemonicParsing="false" onAction="#button_tab2_clear_action" text="Clear" />
 									</children>
 								</AnchorPane>
 							</content>
@@ -229,7 +230,7 @@
 							<content>
 								<AnchorPane id="anchorPane_tab3" fx:id="anchorPane_tab3" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
 									<children>
-										<TextArea id="textArea_tab3_results" fx:id="textArea_tab3_results" editable="false" prefHeight="310.0" prefWidth="245.0" promptText="All the possible results are going to be displayed here..." />
+										<TextArea id="textArea_tab3_results" fx:id="textArea_tab3_results" editable="false" prefHeight="310.0" prefWidth="245.0" promptText="All the possible results are going to be displayed here..." wrapText="true" />
 										
 										<Label id="label_tab3_wordLengthInterval" fx:id="label_tab3_wordLengthInterval" layoutX="263.0" layoutY="10.0" text="Filter word length interval" />
 										<TextField id="textField_tab3_wordLengthIntervalMinimum" fx:id="textField_tab3_wordLengthIntervalMinimum" alignment="CENTER" layoutX="259.0" layoutY="33.0" prefHeight="25.0" prefWidth="65.0" promptText="Minimum" />
@@ -245,11 +246,11 @@
 										<Label id="label_tab3_wordPosition" fx:id="label_tab3_wordPosition" layoutX="270.0" layoutY="193.0" text="Exactly letters positions" />
 										<TextField id="textField_tab3_wordPosition" fx:id="textField_tab3_wordPosition" alignment="CENTER" layoutX="257.0" layoutY="219.0" promptText="Fill unknown char with '?'" />
 								
-										<CheckBox id="checkBox_tab3_hasAccentuation" fx:id="checkBox_tab3_hasAccentuation" layoutX="255.0" layoutY="254.0" mnemonicParsing="false" selected="true" text="Accentuation" />
+										<CheckBox id="checkBox_tab3_hasAccentuation" fx:id="checkBox_tab3_hasAccentuation" layoutX="255.0" layoutY="254.0" mnemonicParsing="false" text="Accentuation" />
 										<CheckBox id="checkBox_tab3_isDone" fx:id="checkBox_tab3_isDone" layoutX="356.0" layoutY="254.0" mnemonicParsing="false" text="Done" />
 
 										<Button id="button_tab3_filter" fx:id="button_tab3_filter" layoutX="342.0" layoutY="283.0" mnemonicParsing="false" onAction="#button_tab3_filter_action" text="Filter" />
-										<Button id="button_tab3_clear" fx:id="button_tab3_clear" layoutX="277.0" layoutY="283.0" mnemonicParsing="false" onAction="#button_tab1_clear_action" text="Clear" />
+										<Button id="button_tab3_clear" fx:id="button_tab3_clear" layoutX="277.0" layoutY="283.0" mnemonicParsing="false" onAction="#button_tab3_clear_action" text="Clear" />
 									</children>
 								</AnchorPane>
 							</content>
@@ -259,7 +260,7 @@
 							<content>
 								<AnchorPane id="anchorPane_tab4" fx:id="anchorPane_tab4" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
 									<children>
-										<TextArea id="textArea_tab4_results" fx:id="textArea_tab4_results" editable="false" prefHeight="310.0" prefWidth="245.0" promptText="All the possible results are going to be displayed here..." />
+										<TextArea id="textArea_tab4_results" fx:id="textArea_tab4_results" editable="false" prefHeight="310.0" prefWidth="245.0" promptText="All the possible results are going to be displayed here..." wrapText="true" />
 										
 										<Label id="label_tab4_wordLengthInterval" fx:id="label_tab4_wordLengthInterval" layoutX="263.0" layoutY="10.0" text="Filter word length interval" />
 										<TextField id="textField_tab4_wordLengthIntervalMinimum" fx:id="textField_tab4_wordLengthIntervalMinimum" alignment="CENTER" layoutX="259.0" layoutY="33.0" prefHeight="25.0" prefWidth="65.0" promptText="Minimum" />
@@ -275,11 +276,11 @@
 										<Label id="label_tab4_wordPosition" fx:id="label_tab4_wordPosition" layoutX="270.0" layoutY="193.0" text="Exactly letters positions" />
 										<TextField id="textField_tab4_wordPosition" fx:id="textField_tab4_wordPosition" alignment="CENTER" layoutX="257.0" layoutY="219.0" promptText="Fill unknown char with '?'" />
 								
-										<CheckBox id="checkBox_tab4_hasAccentuation" fx:id="checkBox_tab4_hasAccentuation" layoutX="255.0" layoutY="254.0" mnemonicParsing="false" selected="true" text="Accentuation" />
+										<CheckBox id="checkBox_tab4_hasAccentuation" fx:id="checkBox_tab4_hasAccentuation" layoutX="255.0" layoutY="254.0" mnemonicParsing="false" text="Accentuation" />
 										<CheckBox id="checkBox_tab4_isDone" fx:id="checkBox_tab4_isDone" layoutX="356.0" layoutY="254.0" mnemonicParsing="false" text="Done" />
 
 										<Button id="button_tab4_filter" fx:id="button_tab4_filter" layoutX="342.0" layoutY="283.0" mnemonicParsing="false" onAction="#button_tab4_filter_action" text="Filter" />
-										<Button id="button_tab4_clear" fx:id="button_tab4_clear" layoutX="277.0" layoutY="283.0" mnemonicParsing="false" onAction="#button_tab1_clear_action" text="Clear" />
+										<Button id="button_tab4_clear" fx:id="button_tab4_clear" layoutX="277.0" layoutY="283.0" mnemonicParsing="false" onAction="#button_tab4_clear_action" text="Clear" />
 									</children>
 								</AnchorPane>
 							</content>

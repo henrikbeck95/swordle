@@ -9,7 +9,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextArea;
@@ -261,16 +260,16 @@ public class FXMLPanelController implements Initializable {
 	private Label label_tabStatistics_game4_wordsTotalTitle;
 
 	@FXML
-	private ProgressIndicator progressIndicator_tabStatistics_game1_percentage;
+	private Label label_tabStatistics_game1_percentage;
 
 	@FXML
-	private ProgressIndicator progressIndicator_tabStatistics_game2_percentage;
+	private Label label_tabStatistics_game2_percentage;
 
 	@FXML
-	private ProgressIndicator progressIndicator_tabStatistics_game3_percentage;
+	private Label label_tabStatistics_game3_percentage;
 
 	@FXML
-	private ProgressIndicator progressIndicator_tabStatistics_game4_percentage;
+	private Label label_tabStatistics_game4_percentage;
 
 	@FXML
 	private TabPane tabPane;
@@ -408,8 +407,8 @@ public class FXMLPanelController implements Initializable {
 			String wordDictionaryLanguage, String wordContent, String wordNotContent, String wordFinal) {
 		// Validate the arguments
 
-		int wordLengthMinimumAux = 20;
-		int wordLengthMaximumAux = 25;
+		int wordLengthMinimumAux = 1;
+		int wordLengthMaximumAux = 30;
 
 		// MUST BE IMPROVED BY CHECKING IF VARIABLE IS COMPATIBLE WITH NUMBER
 		if (wordLengthMinimum != "") {
@@ -432,30 +431,13 @@ public class FXMLPanelController implements Initializable {
 				//
 			}
 		}
-
-		if (wordDictionaryLanguage != "") {
-			wordDictionaryLanguage = this.textField_tab1_wordContent.getText();
-		} else {
-			wordDictionaryLanguage = "portuguese";
-		}
-
-		if (wordContent != "") {
-			wordContent = this.textField_tab1_wordContent.getText();
-		}
-
-		if (wordNotContent != "") {
-			wordNotContent = this.textField_tab1_wordDoesNotContent.getText();
-		}
-
-		if (wordFinal != "") {
-			wordFinal = this.textField_tab1_wordPosition.getText();
-		}
 		
 		// Get the dictionary path
 		ArrayList<String> listDictionary = App.dictionaryListGenerate();
 		String dictionaryUrl = DictionaryFilterArray.getContent(listDictionary, wordDictionaryLanguage);
 
 		// @formatter:off
+		/*
 		System.out.println(
 			"\nDebugging..." +
 			"\naccentuation: " + accentuation +
@@ -466,6 +448,7 @@ public class FXMLPanelController implements Initializable {
 			"\nwordNotContent: " + wordNotContent +
 			"\nwordFinal: " + wordFinal
 		);
+		*/
 		// @formatter:ON
 
 		// Build Wordle object with custom arguments
@@ -476,7 +459,7 @@ public class FXMLPanelController implements Initializable {
 	@FXML
 	void button_tab1_clear_action(ActionEvent event) {
 		this.textArea_tab1_results.setText("");
-		this.progressIndicator_tabStatistics_game1_percentage.setProgress(0);
+		this.label_tabStatistics_game1_percentage.setText("0%");
 		this.label_tabStatistics_game1_wordsTotalResult.setText("0");
 		this.label_tabStatistics_game1_wordsRestResult.setText("0");
 	}
@@ -506,32 +489,20 @@ public class FXMLPanelController implements Initializable {
 		String wordleResults = this.getCustomArrayListWordle().get(tabIndex).getArrayList().toString();
 		int total = (int) DictionaryFile.getAmountOfLines(listDictionary.get(dictionaryLanguageIndex));
 		int totalRest = this.getCustomArrayListWordle().get(tabIndex).getArrayList().size();
-		double percentage = calculatePercentageRest(total, totalRest) / 100;
-
-		if (percentage > 0.99) {
-			percentage = 0.99;
-		}
-
-		// System.out.println("wordleResults: " + wordleResults);
-		// System.out.println("totalRest: " + totalRest);
-		// System.out.println("percentage: " + percentage);
+		double percentage = calculatePercentageRest(total, totalRest);
 
 		// Update the label values
-		this.progressIndicator_tabStatistics_game1_percentage.setProgress(percentage);
+		this.label_tabStatistics_game1_percentage.setText(percentage + "%");
 		this.label_tabStatistics_game1_wordsTotalResult.setText("" + total);
 		this.label_tabStatistics_game1_wordsRestResult.setText("" + totalRest);
 		this.textArea_tab1_results.setText(wordleResults);
-
-//		this.progressIndicator_tabStatistics_game1_percentage.setVisible(false);
-//		this.progressIndicator_tabStatistics_game1_percentage.setVisible(true);
-
 		this.button_tab1_filter.setText("Filter");
 	}
 
 	@FXML
 	void button_tab2_clear_action(ActionEvent event) {
 		this.textArea_tab2_results.setText("");
-		this.progressIndicator_tabStatistics_game2_percentage.setProgress(0);
+		this.label_tabStatistics_game2_percentage.setText("0%");
 		this.label_tabStatistics_game2_wordsTotalResult.setText("0");
 		this.label_tabStatistics_game2_wordsRestResult.setText("0");
 	}
@@ -561,18 +532,10 @@ public class FXMLPanelController implements Initializable {
 		String wordleResults = this.getCustomArrayListWordle().get(tabIndex).getArrayList().toString();
 		int total = (int) DictionaryFile.getAmountOfLines(listDictionary.get(dictionaryLanguageIndex));
 		int totalRest = this.getCustomArrayListWordle().get(tabIndex).getArrayList().size();
-		double percentage = calculatePercentageRest(total, totalRest) / 100;
-
-		if (percentage > 0.99) {
-			percentage = 0.99;
-		}
-
-		// System.out.println("wordleResults: " + wordleResults);
-		// System.out.println("totalRest: " + totalRest);
-		// System.out.println("percentage: " + percentage);
+		double percentage = calculatePercentageRest(total, totalRest);
 
 		// Update the label values
-		this.progressIndicator_tabStatistics_game2_percentage.setProgress(percentage);
+		this.label_tabStatistics_game2_percentage.setText(percentage + "%");
 		this.label_tabStatistics_game2_wordsTotalResult.setText("" + total);
 		this.label_tabStatistics_game2_wordsRestResult.setText("" + totalRest);
 		this.textArea_tab2_results.setText(wordleResults);
@@ -582,7 +545,7 @@ public class FXMLPanelController implements Initializable {
 	@FXML
 	void button_tab3_clear_action(ActionEvent event) {
 		this.textArea_tab3_results.setText("");
-		this.progressIndicator_tabStatistics_game3_percentage.setProgress(0);
+		this.label_tabStatistics_game3_percentage.setText("0%");
 		this.label_tabStatistics_game3_wordsTotalResult.setText("0");
 		this.label_tabStatistics_game3_wordsRestResult.setText("0");
 	}
@@ -612,18 +575,10 @@ public class FXMLPanelController implements Initializable {
 		String wordleResults = this.getCustomArrayListWordle().get(tabIndex).getArrayList().toString();
 		int total = (int) DictionaryFile.getAmountOfLines(listDictionary.get(dictionaryLanguageIndex));
 		int totalRest = this.getCustomArrayListWordle().get(tabIndex).getArrayList().size();
-		double percentage = calculatePercentageRest(total, totalRest) / 100;
-
-		if (percentage > 0.99) {
-			percentage = 0.99;
-		}
-
-		// System.out.println("wordleResults: " + wordleResults);
-		// System.out.println("totalRest: " + totalRest);
-		// System.out.println("percentage: " + percentage);
+		double percentage = calculatePercentageRest(total, totalRest);
 
 		// Update the label values
-		this.progressIndicator_tabStatistics_game3_percentage.setProgress(percentage);
+		this.label_tabStatistics_game3_percentage.setText(percentage + "%");
 		this.label_tabStatistics_game3_wordsTotalResult.setText("" + total);
 		this.label_tabStatistics_game3_wordsRestResult.setText("" + totalRest);
 		this.textArea_tab3_results.setText(wordleResults);
@@ -633,7 +588,7 @@ public class FXMLPanelController implements Initializable {
 	@FXML
 	void button_tab4_clear_action(ActionEvent event) {
 		this.textArea_tab4_results.setText("");
-		this.progressIndicator_tabStatistics_game4_percentage.setProgress(0);
+		this.label_tabStatistics_game4_percentage.setText("0%");
 		this.label_tabStatistics_game4_wordsTotalResult.setText("0");
 		this.label_tabStatistics_game4_wordsRestResult.setText("0");
 	}
@@ -663,18 +618,10 @@ public class FXMLPanelController implements Initializable {
 		String wordleResults = this.getCustomArrayListWordle().get(tabIndex).getArrayList().toString();
 		int total = (int) DictionaryFile.getAmountOfLines(listDictionary.get(dictionaryLanguageIndex));
 		int totalRest = this.getCustomArrayListWordle().get(tabIndex).getArrayList().size();
-		double percentage = calculatePercentageRest(total, totalRest) / 100;
-
-		if (percentage > 0.99) {
-			percentage = 0.99;
-		}
-
-		// System.out.println("wordleResults: " + wordleResults);
-		// System.out.println("totalRest: " + totalRest);
-		// System.out.println("percentage: " + percentage);
+		double percentage = calculatePercentageRest(total, totalRest);
 
 		// Update the label values
-		this.progressIndicator_tabStatistics_game4_percentage.setProgress(percentage);
+		this.label_tabStatistics_game4_percentage.setText(percentage + "%");
 		this.label_tabStatistics_game4_wordsTotalResult.setText("" + total);
 		this.label_tabStatistics_game4_wordsRestResult.setText("" + totalRest);
 		this.textArea_tab4_results.setText(wordleResults);
@@ -685,6 +632,6 @@ public class FXMLPanelController implements Initializable {
 
 	// @formatter:off
 	private ArrayList<Wordle> getCustomArrayListWordle() { return customArrayListWordle; }
-	private void setCustomArrayListWordle(ArrayList<Wordle> customArrayListWordle) { this.customArrayListWordle = customArrayListWordle; }
+	// private void setCustomArrayListWordle(ArrayList<Wordle> customArrayListWordle) { this.customArrayListWordle = customArrayListWordle; }
 	// @formatter:on
 }

@@ -24,6 +24,7 @@ public class CommandLineInterfaceDisplay {
 	 * 
 	 * Build instance example
 	 * wordles.add(new Wordle(false, 5, 5, dictionaryUrl, "", "", "?????".toCharArray()));
+	 * wordles.add(new Wordle(false, 5, 5, dictionaryUrl, "eil", "aurocpsvgmpgj", "?e?i?".toCharArray()));
 	 */
 	// @formatter:on
 
@@ -33,9 +34,7 @@ public class CommandLineInterfaceDisplay {
 		String dictionaryUrl = DictionaryFilterArray.getContent(listDictionary, "portuguese");
 
 		// Insert Wordle elements into ArrayList
-		wordles.add(new Wordle(false, 5, 5, dictionaryUrl, "poerd", "", "?????".toCharArray()));
-		wordles.add(new Wordle(false, 5, 5, dictionaryUrl, "a", "", "?m?d?".toCharArray()));
-		wordles.add(new Wordle(false, 5, 5, dictionaryUrl, "oip", "aureclvgm", "????s".toCharArray()));
+		wordles.add(new Wordle(false, 5, 5, dictionaryUrl, "", "", "?????".toCharArray()));
 
 		// Display
 		// sizes(wordles);

@@ -33,18 +33,6 @@
 		
 		<!-- JavaFX -->
 		
-		<!-- https://mvnrepository.com/artifact/org.openjfx/javafx -->
-		<!--
-		<dependency>
-		    <groupId>org.openjfx</groupId>
-		    <artifactId>javafx</artifactId>
-		    <version>19-ea+8</version>
-		    <type>pom</type>
-		</dependency>
-		-->
-				
-		<!-- Working -->
-		
 		<dependency>
 			<groupId>org.openjfx</groupId>
 			<artifactId>javafx-controls</artifactId>
