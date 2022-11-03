@@ -1,5 +1,10 @@
 Manifest-Version: 1.0
 Built-By: PC
 Build-Jdk: 17.0.4
+Class-Path: lib/javafx-controls-11.0.2.jar lib/javafx-controls-11.0.2-wi
+ n.jar lib/javafx-graphics-11.0.2.jar lib/javafx-graphics-11.0.2-win.jar
+  lib/javafx-base-11.0.2.jar lib/javafx-base-11.0.2-win.jar lib/javafx-f
+ xml-11.0.2.jar lib/javafx-fxml-11.0.2-win.jar
+Main-Class: com.henrikbeck95.swordle.App
 Created-By: Maven Integration for Eclipse
 

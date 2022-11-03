@@ -16,6 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.AnchorPane;
 
+import com.henrikbeck95.library.universal.math.calculate.CalculatePercentage;
 import com.henrikbeck95.swordle.App;
 import com.henrikbeck95.swordle.dictionary.DictionaryFile;
 import com.henrikbeck95.swordle.dictionary.DictionaryFilterArray;
@@ -381,24 +382,10 @@ public class FXMLPanelController implements Initializable {
 
 		// Initialize four null Wordle objects whose means one for each tab
 		this.customArrayListWordle = new ArrayList<Wordle>();
-		this.customArrayListWordle.add(new Wordle(false, 0, 0, dictionaryUrl, "", "", "?????".toCharArray()));
-		this.customArrayListWordle.add(new Wordle(false, 0, 0, dictionaryUrl, "", "", "?????".toCharArray()));
-		this.customArrayListWordle.add(new Wordle(false, 0, 0, dictionaryUrl, "", "", "?????".toCharArray()));
-		this.customArrayListWordle.add(new Wordle(false, 0, 0, dictionaryUrl, "", "", "?????".toCharArray()));
-	}
-
-	// Migrate to MathPercentage class from library
-
-	double calculatePercentageRest(int total, int current) {
-		return 100 - calculatePercentage(total, current);
-	}
-
-	double calculatePercentage(double total, double current) {
-		return current * 100 / total;
-	}
-
-	double calculatePercentage(int total, int current) {
-		return (double) current * 100 / (double) total;
+		this.customArrayListWordle.add(new Wordle(false, 0, 0, dictionaryUrl, "", "", "?????"));
+		this.customArrayListWordle.add(new Wordle(false, 0, 0, dictionaryUrl, "", "", "?????"));
+		this.customArrayListWordle.add(new Wordle(false, 0, 0, dictionaryUrl, "", "", "?????"));
+		this.customArrayListWordle.add(new Wordle(false, 0, 0, dictionaryUrl, "", "", "?????"));
 	}
 
 	// Management Wordle tabs
@@ -453,7 +440,7 @@ public class FXMLPanelController implements Initializable {
 
 		// Build Wordle object with custom arguments
 		return new Wordle(accentuation, wordLengthMinimumAux, wordLengthMaximumAux, dictionaryUrl, wordContent,
-				wordNotContent, wordFinal.toCharArray());
+				wordNotContent, wordFinal);
 	}
 
 	@FXML
@@ -486,10 +473,16 @@ public class FXMLPanelController implements Initializable {
 		this.getCustomArrayListWordle().set(tabIndex, wordle);
 
 		// Calculate the operations
-		String wordleResults = this.getCustomArrayListWordle().get(tabIndex).getArrayList().toString();
+		// String wordleResults = this.getCustomArrayListWordle().get(tabIndex).getArrayList().toString();
+		String wordleResults = this.getCustomArrayListWordle().get(tabIndex).toString();
 		int total = (int) DictionaryFile.getAmountOfLines(listDictionary.get(dictionaryLanguageIndex));
 		int totalRest = this.getCustomArrayListWordle().get(tabIndex).getArrayList().size();
-		double percentage = calculatePercentageRest(total, totalRest);
+		double percentage = CalculatePercentage.calculatePercentageRest(total, totalRest);
+		
+		/*
+		System.out.println(wordles.get(0).getArrayList().toString());
+		System.out.println(wordles.get(0).toString());
+		*/
 
 		// Update the label values
 		this.label_tabStatistics_game1_percentage.setText(percentage + "%");
@@ -529,10 +522,11 @@ public class FXMLPanelController implements Initializable {
 		this.getCustomArrayListWordle().set(tabIndex, wordle);
 
 		// Calculate the operations
-		String wordleResults = this.getCustomArrayListWordle().get(tabIndex).getArrayList().toString();
+		// String wordleResults = this.getCustomArrayListWordle().get(tabIndex).getArrayList().toString();
+		String wordleResults = this.getCustomArrayListWordle().get(tabIndex).toString();
 		int total = (int) DictionaryFile.getAmountOfLines(listDictionary.get(dictionaryLanguageIndex));
 		int totalRest = this.getCustomArrayListWordle().get(tabIndex).getArrayList().size();
-		double percentage = calculatePercentageRest(total, totalRest);
+		double percentage = CalculatePercentage.calculatePercentageRest(total, totalRest);
 
 		// Update the label values
 		this.label_tabStatistics_game2_percentage.setText(percentage + "%");
@@ -572,10 +566,11 @@ public class FXMLPanelController implements Initializable {
 		this.getCustomArrayListWordle().set(tabIndex, wordle);
 
 		// Calculate the operations
-		String wordleResults = this.getCustomArrayListWordle().get(tabIndex).getArrayList().toString();
+		// String wordleResults = this.getCustomArrayListWordle().get(tabIndex).getArrayList().toString();
+		String wordleResults = this.getCustomArrayListWordle().get(tabIndex).toString();
 		int total = (int) DictionaryFile.getAmountOfLines(listDictionary.get(dictionaryLanguageIndex));
 		int totalRest = this.getCustomArrayListWordle().get(tabIndex).getArrayList().size();
-		double percentage = calculatePercentageRest(total, totalRest);
+		double percentage = CalculatePercentage.calculatePercentageRest(total, totalRest);
 
 		// Update the label values
 		this.label_tabStatistics_game3_percentage.setText(percentage + "%");
@@ -615,10 +610,11 @@ public class FXMLPanelController implements Initializable {
 		this.getCustomArrayListWordle().set(tabIndex, wordle);
 
 		// Calculate the operations
-		String wordleResults = this.getCustomArrayListWordle().get(tabIndex).getArrayList().toString();
+		// String wordleResults = this.getCustomArrayListWordle().get(tabIndex).getArrayList().toString();
+		String wordleResults = this.getCustomArrayListWordle().get(tabIndex).toString();
 		int total = (int) DictionaryFile.getAmountOfLines(listDictionary.get(dictionaryLanguageIndex));
 		int totalRest = this.getCustomArrayListWordle().get(tabIndex).getArrayList().size();
-		double percentage = calculatePercentageRest(total, totalRest);
+		double percentage = CalculatePercentage.calculatePercentageRest(total, totalRest);
 
 		// Update the label values
 		this.label_tabStatistics_game4_percentage.setText(percentage + "%");

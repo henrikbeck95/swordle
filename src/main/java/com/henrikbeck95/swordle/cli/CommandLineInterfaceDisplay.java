@@ -8,7 +8,7 @@ import com.henrikbeck95.wordlist.wordle.Wordle;
 
 public class CommandLineInterfaceDisplay {
 	// @formatter:off
-	/*
+	/**
 	 * Build Wordle object with custom arguments
 	 * 
 	 * boolean accentuation.
@@ -23,8 +23,8 @@ public class CommandLineInterfaceDisplay {
 	 * String dictionaryUrl = DictionaryFilterArray.getContent(listDictionary, "english");
 	 * 
 	 * Build instance example
-	 * wordles.add(new Wordle(false, 5, 5, dictionaryUrl, "", "", "?????".toCharArray()));
-	 * wordles.add(new Wordle(false, 5, 5, dictionaryUrl, "eil", "aurocpsvgmpgj", "?e?i?".toCharArray()));
+	 * wordles.add(new Wordle(false, 5, 5, dictionaryUrl, "", "", "?????"));
+	 * wordles.add(new Wordle(false, 5, 5, dictionaryUrl, "eil", "aurocpsvgmpgj", "?e?i?"));
 	 */
 	// @formatter:on
 
@@ -34,7 +34,7 @@ public class CommandLineInterfaceDisplay {
 		String dictionaryUrl = DictionaryFilterArray.getContent(listDictionary, "portuguese");
 
 		// Insert Wordle elements into ArrayList
-		wordles.add(new Wordle(false, 5, 5, dictionaryUrl, "", "", "?????".toCharArray()));
+		wordles.add(new Wordle(false, 5, 5, dictionaryUrl, "", "", "?????"));
 
 		// Display
 		// sizes(wordles);

@@ -51,7 +51,7 @@
 <VBox prefHeight="400.0" prefWidth="430.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.henrikbeck95.swordle.gui.FXMLPanelController">
 -->
 
-<VBox prefHeight="400.0" prefWidth="430.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.henrikbeck95.swordle.gui.FXMLPanelController">
+<VBox prefHeight="400.0" prefWidth="430.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.henrikbeck95.swordle.gui.FXMLPanelController">
 	<children>
 		<MenuBar VBox.vgrow="NEVER">
 			<menus>
