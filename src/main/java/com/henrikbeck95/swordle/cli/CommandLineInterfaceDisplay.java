@@ -2,7 +2,7 @@ package com.henrikbeck95.swordle.cli;
 
 import java.util.ArrayList;
 
-import com.henrikbeck95.swordle.dictionary.DictionaryFilterArray;
+import com.henrikbeck95.library.universal.search.regex.RegexArrayList;
 import com.henrikbeck95.wordlist.Wordlist;
 import com.henrikbeck95.wordlist.wordle.Wordle;
 
@@ -31,7 +31,7 @@ public class CommandLineInterfaceDisplay {
 	public static void main(ArrayList<String> listDictionary) {
 		ArrayList<Wordle> wordles = new ArrayList<Wordle>();
 
-		String dictionaryUrl = DictionaryFilterArray.getContent(listDictionary, "portuguese");
+		String dictionaryUrl = RegexArrayList.getStringContent(listDictionary, "portuguese");
 
 		// Insert Wordle elements into ArrayList
 		wordles.add(new Wordle(false, 5, 5, dictionaryUrl, "", "", "?????"));
