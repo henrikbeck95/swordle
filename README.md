@@ -152,4 +152,30 @@ java -jar ./target/solution-0.0.1-SNAPSHOT.jar
 
 1. Run JavaFX screen on Eclipse IDE
 	- `Run configurations` -> `Argument` -> `VM arguments`
-		> `--module-path "C:\Program Files\JavaFX\lib" --add-modules javafx.controls,javafx.fxml`
+		> ` `
+
+<!--
+java --module-path "C:\Program Files\JavaFX\lib" --add-modules javafx.controls,javafx.fxml -jar C:\Users\PC\Documents\workspace\swordle.jar
+-->
+
+<!--
+- [JavaFX 11+ Cross-platform Deployment](https://www.youtube.com/watch?v=w_PsCNqqcE4&list=PL4h6ypqTi3RR_bhBk6PtLfD83YkaJXXxw).
+-->
+
+<!--
+cd /c/Users/PC/Documents/workspace/swordle/
+
+mvn clean package
+
+cd /c/Users/PC/Documents/workspace/swordle/target/release/
+/c/Program\ Files/GraalVM/graalvm-ce-java17-22.2.0/bin/java -jar swordle-0.0.1.jar
+
+
+
+
+/c/Program\ Files/GraalVM/graalvm-ce-java17-22.2.0/bin/java --module-path /c/Program\ Files/JavaFX/lib/ --add-modules javafx.controls,javafx.fxml -jar /c/Users/PC/Documents/workspace/sample/target/release/sample-0.0.1.jar
+Error: Could not find or load main class org.openjfx.App
+Caused by: java.lang.ClassNotFoundException: org.openjfx.App
+
+java --module-path /c/Program\ Files/JavaFX/lib/ --add-modules javafx.controls,javafx.fxml -jar /c/Users/PC/Documents/workspace/sample/target/release/sample-0.0.1.jar
+-->

@@ -2,7 +2,7 @@ package com.henrikbeck95.swordle.cli;
 
 import java.util.ArrayList;
 
-import com.henrikbeck95.library.universal.search.regex.RegexArrayList;
+import com.henrikbeck95.library.common.search.regex.RegexArrayList;
 import com.henrikbeck95.wordlist.Wordlist;
 import com.henrikbeck95.wordlist.wordle.Wordle;
 

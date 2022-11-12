@@ -1,0 +1,4 @@
+com\henrikbeck95\swordle\cli\CommandLineInterfaceDisplay.class
+com\henrikbeck95\swordle\gui\GraphicalUserInterface.class
+com\henrikbeck95\swordle\gui\FXMLPanelController.class
+com\henrikbeck95\swordle\App.class

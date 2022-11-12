@@ -16,9 +16,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.AnchorPane;
 
-import com.henrikbeck95.library.universal.file.FileRead;
-import com.henrikbeck95.library.universal.math.calculate.CalculatePercentage;
-import com.henrikbeck95.library.universal.search.regex.RegexArrayList;
+import com.henrikbeck95.library.common.file.FileRead;
+import com.henrikbeck95.library.common.math.calculate.CalculatePercentage;
+import com.henrikbeck95.library.common.search.regex.RegexArrayList;
 import com.henrikbeck95.swordle.App;
 import com.henrikbeck95.wordlist.wordle.Wordle;
 
@@ -390,59 +390,6 @@ public class FXMLPanelController implements Initializable {
 
 	// Management Wordle tabs
 
-	Wordle wordleGenerate(boolean accentuation, String wordLengthMinimum, String wordLengthMaximum,
-			String wordDictionaryLanguage, String wordContent, String wordNotContent, String wordFinal) {
-		// Validate the arguments
-
-		int wordLengthMinimumAux = 1;
-		int wordLengthMaximumAux = 30;
-
-		// MUST BE IMPROVED BY CHECKING IF VARIABLE IS COMPATIBLE WITH NUMBER
-		if (wordLengthMinimum != "") {
-			try {
-				wordLengthMinimumAux = Integer.parseUnsignedInt(wordLengthMinimum);
-			} catch (NumberFormatException e) {
-				// System.out.println("Enter only numbers, please");
-			} catch (Exception e) {
-				//
-			}
-		}
-
-		// MUST BE IMPROVED BY CHECKING IF VARIABLE IS COMPATIBLE WITH NUMBER
-		if (wordLengthMaximum != "") {
-			try {
-				wordLengthMaximumAux = Integer.parseUnsignedInt(wordLengthMaximum);
-			} catch (NumberFormatException e) {
-				// System.out.println("Enter only numbers, please");
-			} catch (Exception e) {
-				//
-			}
-		}
-		
-		// Get the dictionary path
-		ArrayList<String> listDictionary = App.dictionaryListGenerate();
-		String dictionaryUrl = RegexArrayList.getStringContent(listDictionary, wordDictionaryLanguage);
-
-		// @formatter:off
-		/*
-		System.out.println(
-			"\nDebugging..." +
-			"\naccentuation: " + accentuation +
-			"\nwordLengthMinimum: " + wordLengthMinimumAux +
-			"\nwordLengthMaximum: " + wordLengthMaximumAux +
-			"\nwordDictionaryLanguage: " + dictionaryUrl +
-			"\nwordContent: " + wordContent +
-			"\nwordNotContent: " + wordNotContent +
-			"\nwordFinal: " + wordFinal
-		);
-		*/
-		// @formatter:ON
-
-		// Build Wordle object with custom arguments
-		return new Wordle(accentuation, wordLengthMinimumAux, wordLengthMaximumAux, dictionaryUrl, wordContent,
-				wordNotContent, wordFinal);
-	}
-
 	@FXML
 	void button_tab1_clear_action(ActionEvent event) {
 		this.textArea_tab1_results.setText("");
@@ -450,40 +397,42 @@ public class FXMLPanelController implements Initializable {
 		this.label_tabStatistics_game1_wordsTotalResult.setText("0");
 		this.label_tabStatistics_game1_wordsRestResult.setText("0");
 	}
-
+	
 	@FXML
 	void button_tab1_filter_action(ActionEvent event) {
-		int tabIndex = 0;
-		this.button_tab1_filter.setText("Processing...");
-
-		// Build Wordle
-		boolean accentuation = this.checkBox_tab1_hasAccentuation.isSelected();
-		String wordLengthMinimum = this.textField_tab1_wordLengthIntervalMinimum.getText();
-		String wordLengthMaximum = this.textField_tab1_wordLengthIntervalMaximum.getText();
-		String wordDictionaryLanguage = "portuguese";
-		String wordContent = this.textField_tab1_wordContent.getText();
-		String wordNotContent = this.textField_tab1_wordDoesNotContent.getText();
-		String wordFinal = this.textField_tab1_wordPosition.getText();
-		Wordle wordle = wordleGenerate(accentuation, wordLengthMinimum, wordLengthMaximum, wordDictionaryLanguage,
-				wordContent, wordNotContent, wordFinal);
-
-		// Insert the elements into ArrayList
-		ArrayList<String> listDictionary = App.dictionaryListGenerate();
-		int dictionaryLanguageIndex = RegexArrayList.getStringContentIndex(listDictionary, wordDictionaryLanguage);
-		this.getCustomArrayListWordle().set(tabIndex, wordle);
-
-		// Calculate the operations
-		String wordleResults = this.getCustomArrayListWordle().get(tabIndex).toString();
-		int total = (int) FileRead.getAmountOfLines(listDictionary.get(dictionaryLanguageIndex));
-		int totalRest = this.getCustomArrayListWordle().get(tabIndex).getArrayList().size();
-		double percentage = CalculatePercentage.calculatePercentageRest(total, totalRest);
-		
-		// Update the label values
-		this.label_tabStatistics_game1_percentage.setText(percentage + "%");
-		this.label_tabStatistics_game1_wordsTotalResult.setText("" + total);
-		this.label_tabStatistics_game1_wordsRestResult.setText("" + totalRest);
-		this.textArea_tab1_results.setText(wordleResults);
-		this.button_tab1_filter.setText("Filter");
+		new Thread(() -> {
+			int tabIndex = 0;
+			this.button_tab1_filter.setText("Processing...");
+	
+			// Build Wordle
+			boolean accentuation = this.checkBox_tab1_hasAccentuation.isSelected();
+			String wordLengthMinimum = this.textField_tab1_wordLengthIntervalMinimum.getText();
+			String wordLengthMaximum = this.textField_tab1_wordLengthIntervalMaximum.getText();
+			String wordDictionaryLanguage = "portuguese";
+			String wordContent = this.textField_tab1_wordContent.getText();
+			String wordNotContent = this.textField_tab1_wordDoesNotContent.getText();
+			String wordFinal = this.textField_tab1_wordPosition.getText();
+			Wordle wordle = WordleManagement.wordleGenerate(accentuation, wordLengthMinimum, wordLengthMaximum, wordDictionaryLanguage,
+					wordContent, wordNotContent, wordFinal);
+	
+			// Insert the elements into ArrayList
+			ArrayList<String> listDictionary = App.dictionaryListGenerate();
+			int dictionaryLanguageIndex = RegexArrayList.getStringContentIndex(listDictionary, wordDictionaryLanguage);
+			this.getCustomArrayListWordle().set(tabIndex, wordle);
+	
+			// Calculate the operations
+			String wordleResults = this.getCustomArrayListWordle().get(tabIndex).toString();
+			int total = (int) FileRead.getAmountOfLines(listDictionary.get(dictionaryLanguageIndex));
+			int totalRest = this.getCustomArrayListWordle().get(tabIndex).getArrayList().size();
+			double percentage = CalculatePercentage.calculateFromNumberToPercentageRest(total, totalRest);
+			
+			// Update the label values
+			this.label_tabStatistics_game1_percentage.setText(percentage + "%");
+			this.label_tabStatistics_game1_wordsTotalResult.setText("" + total);
+			this.label_tabStatistics_game1_wordsRestResult.setText("" + totalRest);
+			this.textArea_tab1_results.setText(wordleResults);
+			this.button_tab1_filter.setText("Filter");
+		}).start();
 	}
 
 	@FXML
@@ -496,37 +445,39 @@ public class FXMLPanelController implements Initializable {
 
 	@FXML
 	void button_tab2_filter_action(ActionEvent event) {
-		int tabIndex = 1;
-		this.button_tab2_filter.setText("Processing...");
-
-		// Build Wordle
-		boolean accentuation = this.checkBox_tab2_hasAccentuation.isSelected();
-		String wordLengthMinimum = this.textField_tab2_wordLengthIntervalMinimum.getText();
-		String wordLengthMaximum = this.textField_tab2_wordLengthIntervalMaximum.getText();
-		String wordDictionaryLanguage = "portuguese";
-		String wordContent = this.textField_tab2_wordContent.getText();
-		String wordNotContent = this.textField_tab2_wordDoesNotContent.getText();
-		String wordFinal = this.textField_tab2_wordPosition.getText();
-		Wordle wordle = wordleGenerate(accentuation, wordLengthMinimum, wordLengthMaximum, wordDictionaryLanguage,
-				wordContent, wordNotContent, wordFinal);
-
-		// Insert the elements into ArrayList
-		ArrayList<String> listDictionary = App.dictionaryListGenerate();
-		int dictionaryLanguageIndex = RegexArrayList.getStringContentIndex(listDictionary, wordDictionaryLanguage);
-		this.getCustomArrayListWordle().set(tabIndex, wordle);
-
-		// Calculate the operations
-		String wordleResults = this.getCustomArrayListWordle().get(tabIndex).toString();
-		int total = (int) FileRead.getAmountOfLines(listDictionary.get(dictionaryLanguageIndex));
-		int totalRest = this.getCustomArrayListWordle().get(tabIndex).getArrayList().size();
-		double percentage = CalculatePercentage.calculatePercentageRest(total, totalRest);
-
-		// Update the label values
-		this.label_tabStatistics_game2_percentage.setText(percentage + "%");
-		this.label_tabStatistics_game2_wordsTotalResult.setText("" + total);
-		this.label_tabStatistics_game2_wordsRestResult.setText("" + totalRest);
-		this.textArea_tab2_results.setText(wordleResults);
-		this.button_tab2_filter.setText("Filter");
+		new Thread(() -> {
+			int tabIndex = 1;
+			this.button_tab2_filter.setText("Processing...");
+	
+			// Build Wordle
+			boolean accentuation = this.checkBox_tab2_hasAccentuation.isSelected();
+			String wordLengthMinimum = this.textField_tab2_wordLengthIntervalMinimum.getText();
+			String wordLengthMaximum = this.textField_tab2_wordLengthIntervalMaximum.getText();
+			String wordDictionaryLanguage = "portuguese";
+			String wordContent = this.textField_tab2_wordContent.getText();
+			String wordNotContent = this.textField_tab2_wordDoesNotContent.getText();
+			String wordFinal = this.textField_tab2_wordPosition.getText();
+			Wordle wordle = WordleManagement.wordleGenerate(accentuation, wordLengthMinimum, wordLengthMaximum, wordDictionaryLanguage,
+					wordContent, wordNotContent, wordFinal);
+	
+			// Insert the elements into ArrayList
+			ArrayList<String> listDictionary = App.dictionaryListGenerate();
+			int dictionaryLanguageIndex = RegexArrayList.getStringContentIndex(listDictionary, wordDictionaryLanguage);
+			this.getCustomArrayListWordle().set(tabIndex, wordle);
+	
+			// Calculate the operations
+			String wordleResults = this.getCustomArrayListWordle().get(tabIndex).toString();
+			int total = (int) FileRead.getAmountOfLines(listDictionary.get(dictionaryLanguageIndex));
+			int totalRest = this.getCustomArrayListWordle().get(tabIndex).getArrayList().size();
+			double percentage = CalculatePercentage.calculateFromNumberToPercentageRest(total, totalRest);
+	
+			// Update the label values
+			this.label_tabStatistics_game2_percentage.setText(percentage + "%");
+			this.label_tabStatistics_game2_wordsTotalResult.setText("" + total);
+			this.label_tabStatistics_game2_wordsRestResult.setText("" + totalRest);
+			this.textArea_tab2_results.setText(wordleResults);
+			this.button_tab2_filter.setText("Filter");
+		}).start();
 	}
 
 	@FXML
@@ -536,40 +487,43 @@ public class FXMLPanelController implements Initializable {
 		this.label_tabStatistics_game3_wordsTotalResult.setText("0");
 		this.label_tabStatistics_game3_wordsRestResult.setText("0");
 	}
+	
 
 	@FXML
 	void button_tab3_filter_action(ActionEvent event) {
-		int tabIndex = 2;
-		this.button_tab3_filter.setText("Processing...");
-
-		// Build Wordle
-		boolean accentuation = this.checkBox_tab3_hasAccentuation.isSelected();
-		String wordLengthMinimum = this.textField_tab3_wordLengthIntervalMinimum.getText();
-		String wordLengthMaximum = this.textField_tab3_wordLengthIntervalMaximum.getText();
-		String wordDictionaryLanguage = "portuguese";
-		String wordContent = this.textField_tab3_wordContent.getText();
-		String wordNotContent = this.textField_tab3_wordDoesNotContent.getText();
-		String wordFinal = this.textField_tab3_wordPosition.getText();
-		Wordle wordle = wordleGenerate(accentuation, wordLengthMinimum, wordLengthMaximum, wordDictionaryLanguage,
-				wordContent, wordNotContent, wordFinal);
-
-		// Insert the elements into ArrayList
-		ArrayList<String> listDictionary = App.dictionaryListGenerate();
-		int dictionaryLanguageIndex = RegexArrayList.getStringContentIndex(listDictionary, wordDictionaryLanguage);
-		this.getCustomArrayListWordle().set(tabIndex, wordle);
-
-		// Calculate the operations
-		String wordleResults = this.getCustomArrayListWordle().get(tabIndex).toString();
-		int total = (int) FileRead.getAmountOfLines(listDictionary.get(dictionaryLanguageIndex));
-		int totalRest = this.getCustomArrayListWordle().get(tabIndex).getArrayList().size();
-		double percentage = CalculatePercentage.calculatePercentageRest(total, totalRest);
-
-		// Update the label values
-		this.label_tabStatistics_game3_percentage.setText(percentage + "%");
-		this.label_tabStatistics_game3_wordsTotalResult.setText("" + total);
-		this.label_tabStatistics_game3_wordsRestResult.setText("" + totalRest);
-		this.textArea_tab3_results.setText(wordleResults);
-		this.button_tab3_filter.setText("Filter");
+		new Thread(() -> {
+			int tabIndex = 2;
+			this.button_tab3_filter.setText("Processing...");
+	
+			// Build Wordle
+			boolean accentuation = this.checkBox_tab3_hasAccentuation.isSelected();
+			String wordLengthMinimum = this.textField_tab3_wordLengthIntervalMinimum.getText();
+			String wordLengthMaximum = this.textField_tab3_wordLengthIntervalMaximum.getText();
+			String wordDictionaryLanguage = "portuguese";
+			String wordContent = this.textField_tab3_wordContent.getText();
+			String wordNotContent = this.textField_tab3_wordDoesNotContent.getText();
+			String wordFinal = this.textField_tab3_wordPosition.getText();
+			Wordle wordle = WordleManagement.wordleGenerate(accentuation, wordLengthMinimum, wordLengthMaximum, wordDictionaryLanguage,
+					wordContent, wordNotContent, wordFinal);
+	
+			// Insert the elements into ArrayList
+			ArrayList<String> listDictionary = App.dictionaryListGenerate();
+			int dictionaryLanguageIndex = RegexArrayList.getStringContentIndex(listDictionary, wordDictionaryLanguage);
+			this.getCustomArrayListWordle().set(tabIndex, wordle);
+	
+			// Calculate the operations
+			String wordleResults = this.getCustomArrayListWordle().get(tabIndex).toString();
+			int total = (int) FileRead.getAmountOfLines(listDictionary.get(dictionaryLanguageIndex));
+			int totalRest = this.getCustomArrayListWordle().get(tabIndex).getArrayList().size();
+			double percentage = CalculatePercentage.calculateFromNumberToPercentageRest(total, totalRest);
+	
+			// Update the label values
+			this.label_tabStatistics_game3_percentage.setText(percentage + "%");
+			this.label_tabStatistics_game3_wordsTotalResult.setText("" + total);
+			this.label_tabStatistics_game3_wordsRestResult.setText("" + totalRest);
+			this.textArea_tab3_results.setText(wordleResults);
+			this.button_tab3_filter.setText("Filter");
+		}).start();
 	}
 
 	@FXML
@@ -579,40 +533,43 @@ public class FXMLPanelController implements Initializable {
 		this.label_tabStatistics_game4_wordsTotalResult.setText("0");
 		this.label_tabStatistics_game4_wordsRestResult.setText("0");
 	}
+	
 
 	@FXML
 	void button_tab4_filter_action(ActionEvent event) {
-		int tabIndex = 3;
-		this.button_tab4_filter.setText("Processing...");
-
-		// Build Wordle
-		boolean accentuation = this.checkBox_tab4_hasAccentuation.isSelected();
-		String wordLengthMinimum = this.textField_tab4_wordLengthIntervalMinimum.getText();
-		String wordLengthMaximum = this.textField_tab4_wordLengthIntervalMaximum.getText();
-		String wordDictionaryLanguage = "portuguese";
-		String wordContent = this.textField_tab4_wordContent.getText();
-		String wordNotContent = this.textField_tab4_wordDoesNotContent.getText();
-		String wordFinal = this.textField_tab4_wordPosition.getText();
-		Wordle wordle = wordleGenerate(accentuation, wordLengthMinimum, wordLengthMaximum, wordDictionaryLanguage,
-				wordContent, wordNotContent, wordFinal);
-
-		// Insert the elements into ArrayList
-		ArrayList<String> listDictionary = App.dictionaryListGenerate();
-		int dictionaryLanguageIndex = RegexArrayList.getStringContentIndex(listDictionary, wordDictionaryLanguage);
-		this.getCustomArrayListWordle().set(tabIndex, wordle);
-
-		// Calculate the operations
-		String wordleResults = this.getCustomArrayListWordle().get(tabIndex).toString();
-		int total = (int) FileRead.getAmountOfLines(listDictionary.get(dictionaryLanguageIndex));
-		int totalRest = this.getCustomArrayListWordle().get(tabIndex).getArrayList().size();
-		double percentage = CalculatePercentage.calculatePercentageRest(total, totalRest);
-
-		// Update the label values
-		this.label_tabStatistics_game4_percentage.setText(percentage + "%");
-		this.label_tabStatistics_game4_wordsTotalResult.setText("" + total);
-		this.label_tabStatistics_game4_wordsRestResult.setText("" + totalRest);
-		this.textArea_tab4_results.setText(wordleResults);
-		this.button_tab4_filter.setText("Filter");
+		new Thread(() -> {
+			int tabIndex = 3;
+			this.button_tab4_filter.setText("Processing...");
+	
+			// Build Wordle
+			boolean accentuation = this.checkBox_tab4_hasAccentuation.isSelected();
+			String wordLengthMinimum = this.textField_tab4_wordLengthIntervalMinimum.getText();
+			String wordLengthMaximum = this.textField_tab4_wordLengthIntervalMaximum.getText();
+			String wordDictionaryLanguage = "portuguese";
+			String wordContent = this.textField_tab4_wordContent.getText();
+			String wordNotContent = this.textField_tab4_wordDoesNotContent.getText();
+			String wordFinal = this.textField_tab4_wordPosition.getText();
+			Wordle wordle = WordleManagement.wordleGenerate(accentuation, wordLengthMinimum, wordLengthMaximum, wordDictionaryLanguage,
+					wordContent, wordNotContent, wordFinal);
+	
+			// Insert the elements into ArrayList
+			ArrayList<String> listDictionary = App.dictionaryListGenerate();
+			int dictionaryLanguageIndex = RegexArrayList.getStringContentIndex(listDictionary, wordDictionaryLanguage);
+			this.getCustomArrayListWordle().set(tabIndex, wordle);
+	
+			// Calculate the operations
+			String wordleResults = this.getCustomArrayListWordle().get(tabIndex).toString();
+			int total = (int) FileRead.getAmountOfLines(listDictionary.get(dictionaryLanguageIndex));
+			int totalRest = this.getCustomArrayListWordle().get(tabIndex).getArrayList().size();
+			double percentage = CalculatePercentage.calculateFromNumberToPercentageRest(total, totalRest);
+	
+			// Update the label values
+			this.label_tabStatistics_game4_percentage.setText(percentage + "%");
+			this.label_tabStatistics_game4_wordsTotalResult.setText("" + total);
+			this.label_tabStatistics_game4_wordsRestResult.setText("" + totalRest);
+			this.textArea_tab4_results.setText(wordleResults);
+			this.button_tab4_filter.setText("Filter");
+		}).start();
 	}
 
 	// Getters and setters
